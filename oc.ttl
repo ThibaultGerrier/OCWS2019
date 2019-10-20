@@ -1,0 +1,265 @@
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix npg: <http://ns.nature.com/terms/> .
+@prefix dbpedia: <http://dbpedia.org/ontology/atPage> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+@prefix oc: <http://www.oc.com/vocab/> .
+@prefix oce: <http://www.oc.com/entities/> .
+
+
+##### VOCAB
+
+
+schema:publicAccess schema:domainIncludes oc:KnowledgeGraph .
+
+oc:numTripples a rdf:Property ;
+    rdfs:label "numTripples" ;
+    schema:domainIncludes oc:KnowledgeGraph ;
+    schema:rangeIncludes schema:Number;
+    rdfs:comment "The number of tripples in a knowledge graph" .
+
+oc:numClasses a rdf:Property ;
+    rdfs:label "numClasses" ;
+    schema:domainIncludes owl:Ontology ;
+    schema:rangeIncludes schema:Number;
+    rdfs:comment "The number of classes in an ontology" .
+
+oc:numProperties a rdf:Property ;
+    rdfs:label "numProperties" ;
+    schema:domainIncludes owl:Ontology ;
+    schema:rangeIncludes schema:Number;
+    rdfs:comment "The number of properties in an ontology" .
+
+oc:KnowledgeGraph a rdfs:Class ;
+    rdfs:label "KnowledgeGraph" ;
+    schema:category "issue-1004" ;
+    rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
+    rdfs:subClassOf schema:Dataset .
+
+
+##### ENTITIES
+
+
+oce:TheBook a schema:Book;
+    a dbpedia:WrittenWork;
+    schema:name "Knowledge Graphs Methodology, Tools and Selected Use Cases";
+    schema:numberOfPages "178"^^xsd:integer; # eq to dbpedia:numberOfPages
+    schema:datePublished "2019-09-30"^^xsd:date;
+    schema:inLanguage "en-US";
+    schema:publisher [
+        a schema:Organization;
+        schema:name "Springer";
+    ];
+    schema:bookFormat schema:Paperback;
+    schema:review [
+        a schema:Review;
+        schema:author "ThibaultG";
+        schema:reviewBody "Puh..";
+    ];
+    schema:author oce:DieterFensel,
+        oce:UmutcabSimsek,
+        oce:KevinAngele,
+        oce:ElwinHuaman,
+        oce:EliasKaerle,
+        oce:OleksandraPanasiuk,
+        oce:IoanToma,
+        oce:JürgenUmbrich,
+        oce:AlexanderWahler;
+    dcterms:tableOfContents  [
+        ##TODO
+    ] ;
+    schema:about oce:BuildKG.
+
+
+oce:DieterFensel a schema:Person;
+    schema:name "Dieter Fensel";
+    schema:memberOf oce:STI. # /affiliation/worksFor
+
+oce:UmutcabSimsek a schema:Person;
+    schema:name "Umutcan Şimşek";
+    schema:memberOf oce:STI.
+
+oce:KevinAngele a schema:Person;
+    schema:name "Kevin Angele";
+    schema:memberOf oce:STI, oce:Onlim.
+
+oce:ElwinHuaman a schema:Person;
+    schema:name "Elwin Huaman";
+    schema:memberOf oce:STI.
+
+oce:EliasKaerle a schema:Person;
+    schema:name "Elias Kaerle";
+    schema:memberOf oce:STI.
+
+oce:OleksandraPanasiuk a schema:Person;
+    schema:name "Oleksandra Panasiuk";
+    schema:memberOf oce:STI.
+
+oce:IoanToma a schema:Person;
+    schema:name "Ioan Toma";
+    schema:memberOf oce:Onlim.
+
+oce:JürgenUmbrich a schema:Person;
+    schema:name "Jürgen Umbrich";
+    schema:memberOf oce:Onlim.
+
+oce:AlexanderWahler a schema:Person;
+    schema:name "Alexander Wahler";
+    schema:memberOf oce:Onlim.
+
+oce:STI a schema:Organization ;
+    schema:name "Semantic Technology Institute Innsbruck";
+    schema:address [
+        a schema:PostalAddress;
+        schema:addressCountry "Austria";
+    ].
+
+oce:Onlim a schema:Organization ;
+    schema:name "Onlim GmbH";
+    schema:address [
+        a schema:PostalAddress;
+        schema:addressCountry "Austria";
+        schema:addressLocality "Telfs";
+    ].
+
+
+oce:SchemaOrg a schema:Website, owl:Ontology;
+    schema:name "Schema.org" ;
+    schema:description "Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.";
+    schema:url "https://semantify.it/" ;
+    schema:datePublished "2011-01-01"^^xsd:date; #dct:issued
+    schema:creator "Google", "Yahoo!", "Bing", "Yandex". # do orgs instead if used elsewhere
+
+oce:DBpediaOntology a owl:Ontology;
+    schema:name "DBpedia Ontology" ;
+    schema:numClasses "760"^^xsd:integer;
+    schema:numProperties "3000"^^xsd:integer.
+
+oce:Wikipedia a schema:WebSite;
+    schema:url "http://wikipedia.org".
+
+oce:DBpedia a oc:KnowledgeGraph ;
+    schema:publicAccess "true"^^xsd:boolean ;
+    schema:name "Dbpedia" ;
+    schema:description "It is the de-facto central dataset on the semantic web (also referred as “nucleus”) since it is linked to many other datasets." ;
+    schema:accessibilityControl "RDF Dumps", "Sparql Endpoints";
+    schema:datePublished "2007-01-01"^^xsd:date;
+    oce:numTripples "13 000 000 000"^^xsd:integer;
+    schema:isBasedOn oce:DBpediaOntology, oce:Wikipedia; # maybe split into 2 diff props
+    schema:educationalUse "Natural Language Processing", "knowledge exploration and enrichment".
+
+oce:Freebase a oc:KnowledgeGraph ;
+    schema:publicAccess "true"^^xsd:boolean ;
+    schema:name "Freebase";
+    schema:datePublished "2007-01-01"^^xsd:date;
+    oce:numTripples "1 900 000 000"^^xsd:integer.
+    #shut down on 2016
+
+oce:Cyc a oc:KnowledgeGraph ;
+    schema:publicAccess "false"^^xsd:boolean ;
+    schema:name "Cyc";
+    schema:datePublished "1984-01-01"^^xsd:date;
+    oce:numTripples "20 000 000 000"^^xsd:integer. # says axioms, is same as tripples?
+    #1.5m concepts?
+
+
+
+oce:SemantifyIt a schema:WebApplication, schema:WebSite ;
+    schema:name "semantify.it" ;
+    schema:url "https://semantify.it/" ;
+    schema:description "Semantify.it gives your website the power to be perfectly understandable for search engines, intelligent assistants and chatbots by using schema.org annotations. Semantify.it gives you easy-to-use annotation creation and deployment.";
+    schema:softwareAddOn oce:smtfyAnnotationEditor, oce:smtfyEvaluator.
+
+oce:smtfyEvaluator a schema:WebApplication;
+    schema:name "Semantify.it Evaluator";
+    schema:softwareAddOn oce:smtfyValidator, oce:smtfyVerificator.
+
+oce:smtfyValidator a schema:WebApplication;
+    schema:about oce:Validation;
+    schema:screenshot oce:VerificationReportScreenShot, oce:VerificationReport2ScreenShot.
+
+oce:smtfyVerificator a schema:WebApplication;
+    schema:about oce:Verification.
+
+oce:smtfyAnnotationEditor a schema:WebApplication;
+    schema:name "Annotation Editor";
+    schema:screenshot oce:AnnotationEditorScreenShot;
+    schema:hasPart [
+        a schema:HowTo;
+        schema:name "Create an Annotation";
+        schema:yied oce:Annotation;
+        schema:step: [
+            a schema:HowToStep;
+            schema:position "1"^^xsd:integer;
+            schema:text "Select a domain specification"
+        ], [
+            a schema:HowToStep;
+            schema:position "2"^^xsd:integer;
+            schema:text "Fill in required fields"
+        ];
+    ] .
+
+oce:Annotation a schema:CreativeWork;
+    schema:name "JsonLD Annotataion";
+    schema:encodingFormat "application/ld+json".
+
+
+oce:schemaOrgHotelScreenshot a schema:ImageObject, dbpedia:Reference;
+    dbpedia:atPage "30" ;
+    schema:url "http://schema.org/Hotel" ;
+    schema:caption "Properties and ranges for the schema.org type Hotel." ;
+    schema:representativeOfPage "true"^^xsd:boolean ;
+    schema:about [
+        a schema:WebPage;
+        schema:mainEntity "Description of schema.org Hotel type its properties and ranges"
+    ];
+    schema:mainEntity schema:Hotel ;
+    schema:headline "Hotel" .
+
+
+oce:AnnotationEditorScreenShot a schema:ImageObject, dbpedia:Reference;
+    dbpedia:atPage "35" ;
+    schema:headline "Annotate Restaurant" ;
+    schema:caption "semantify.it Annotation Editor" ;
+    schema:about oce:AnnotationEditor.
+
+oce:VerificationReportScreenShot a schema:ImageObject, dbpedia:Reference;
+    dbpedia:atPage "43" ;
+    schema:headline "Verification Report" ;
+    schema:caption "semantify.it Verifier" ;
+    schema:about oce:Verificator.
+
+
+oce:VerificationReportScreen2Shot a schema:ImageObject, dbpedia:Reference;
+    dbpedia:atPage "44" ;
+    schema:headline "Domain Specification Verification Report" ;
+    schema:caption "semantify.it Verification Report" ;
+    schema:about oce:Verificator.
+
+oce:BuildKG a schema:HowTo ;
+    schema:name "How to build a knowledge graph";
+    schema:steps [
+        a schema:HowToSection;
+        schema:name "knowledge creation";
+        schema:position "1";
+        #TODO further elaborate
+    ], [
+        a schema:HowToSection;
+        schema:name "knowledge hosting";
+        schema:position "2";
+         #TODO further elaborate
+    ], [
+        a schema:HowToSection;
+        schema:name "knowledge curation";
+        schema:position "3";
+    ], [
+        a schema:HowToSection;
+        schema:name "knowledge deployment";
+        schema:position "4";
+    ];
+    schema:yield oc:KnowledgeGraph.
