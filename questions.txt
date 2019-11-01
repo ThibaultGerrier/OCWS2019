@@ -1,0 +1,5 @@
+1) What are Knowledge Graphs?
+2) Tell me sub types of Knowledge Graphs!
+3) Tell me some Open Knowledge Graphs!
+4) Tell me some Proprietary Knowledge Graphs!
+5) What is a graph?
