@@ -37,7 +37,6 @@ oc:numProperties a rdf:Property ;
 
 oc:KnowledgeGraph a rdfs:Class ;
     rdfs:label "KnowledgeGraph" ;
-    schema:category "issue-1004" ;
     rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
     rdfs:subClassOf schema:Dataset .
 
