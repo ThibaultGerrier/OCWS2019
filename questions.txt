@@ -3,3 +3,4 @@
 3) Tell me some Open Knowledge Graphs!
 4) Tell me some Proprietary Knowledge Graphs!
 5) What is a graph?
+6) Which Knowledge Graph has the highest number of tripples?
