@@ -168,6 +168,13 @@ oce:Freebase a oc:OpenKnowledgeGraph ;
     oce:numTripples "1 900 000 000"^^xsd:integer.
     #shut down on 2016
 
+oce:YAGO a oc:OpenKnowledgeGraph ;
+    schema:publicAccess "true"^^xsd:boolean ;
+    schema:name "YAGO";
+    schema:description "YAGO is a Knowledge Graph built based on Wikipedia content.";
+    schema:datePublished "2008-01-01"^^xsd:date;
+    oce:numTripples "120 000 000"^^xsd:integer. # 120M facts and 350K classes
+
 oce:Cyc a oc:ProprietaryKnowledgeGraph ;
     schema:publicAccess "false"^^xsd:boolean ;
     schema:name "Cyc";
