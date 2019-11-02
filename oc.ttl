@@ -41,6 +41,15 @@ oc:KnowledgeGraph a rdfs:Class ;
     rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
     rdfs:subClassOf schema:Dataset .
 
+oc:OpenKnowledgeGraph a rdfs:Class ;
+    rdfs:label "OpenKnowledgeGraph" ;
+    rdfs:comment "The research on semantic web and linked data led to many open datasets eventually to comprise the Linked Open Data cloud. These datasets are now mostly rebranded as Knowledge Graphs." ;
+    rdfs:subClassOf oc:KnowledgeGraph .
+
+oc:ProprietaryKnowledgeGraph a rdfs:Class ;
+    rdfs:label "ProprietaryKnowledgeGraph" ;
+    rdfs:comment "Various Knowledge Graphs have been developed by companies to enable their customers' applications." ;
+    rdfs:subClassOf oc:KnowledgeGraph .
 
 ##### ENTITIES
 
@@ -143,7 +152,7 @@ oce:DBpediaOntology a owl:Ontology;
 oce:Wikipedia a schema:WebSite;
     schema:url "http://wikipedia.org".
 
-oce:DBpedia a oc:KnowledgeGraph ;
+oce:DBpedia a oc:OpenKnowledgeGraph ;
     schema:publicAccess "true"^^xsd:boolean ;
     schema:name "Dbpedia" ;
     schema:description "It is the de-facto central dataset on the semantic web (also referred as “nucleus”) since it is linked to many other datasets." ;
@@ -153,14 +162,14 @@ oce:DBpedia a oc:KnowledgeGraph ;
     schema:isBasedOn oce:DBpediaOntology, oce:Wikipedia; # maybe split into 2 diff props
     schema:educationalUse "Natural Language Processing", "knowledge exploration and enrichment".
 
-oce:Freebase a oc:KnowledgeGraph ;
+oce:Freebase a oc:OpenKnowledgeGraph ;
     schema:publicAccess "true"^^xsd:boolean ;
     schema:name "Freebase";
     schema:datePublished "2007-01-01"^^xsd:date;
     oce:numTripples "1 900 000 000"^^xsd:integer.
     #shut down on 2016
 
-oce:Cyc a oc:KnowledgeGraph ;
+oce:Cyc a oc:ProprietaryKnowledgeGraph ;
     schema:publicAccess "false"^^xsd:boolean ;
     schema:name "Cyc";
     schema:datePublished "1984-01-01"^^xsd:date;
