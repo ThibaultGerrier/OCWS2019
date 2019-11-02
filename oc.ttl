@@ -176,7 +176,12 @@ oce:Cyc a oc:ProprietaryKnowledgeGraph ;
     oce:numTripples "20 000 000 000"^^xsd:integer. # says axioms, is same as tripples?
     #1.5m concepts?
 
-
+oce:FacebooksEntitiesGraph a oc:ProprietaryKnowledgeGraph ;
+    schema:publicAccess "true"^^xsd:boolean ; # accessible via the Facebook Graph API?!
+    schema:name "FacebooksEntitiesGraph";
+    schema:description "Facebook's Entities Graph is maintained by Facebook and used internally to support the graph search functionality."
+    schema:datePublished "2010-01-01"^^xsd:date;
+    oce:numTripples "500 000 000 000"^^xsd:integer.
 
 oce:SemantifyIt a schema:WebApplication, schema:WebSite ;
     schema:name "semantify.it" ;
