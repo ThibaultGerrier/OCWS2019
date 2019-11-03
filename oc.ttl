@@ -40,6 +40,8 @@ oc:KnowledgeGraph a rdfs:Class ;
     rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
     rdfs:subClassOf schema:Dataset .
 
+    TODO add different types of comments / definitions --> Empirical (Chapter 1.3), Conceptual (Chapter 1.2)
+
 oc:OpenKnowledgeGraph a rdfs:Class ;
     rdfs:label "OpenKnowledgeGraph" ;
     rdfs:comment "The research on semantic web and linked data led to many open datasets eventually to comprise the Linked Open Data cloud. These datasets are now mostly rebranded as Knowledge Graphs." ;

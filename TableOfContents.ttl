@@ -21,7 +21,11 @@
         rdfs:comment "The Part of a Book, which describes the structure of a book. It works by defining chapters, with start and end page, chapter title / name and chapter heading / pagination." ;
         rdfs:hasChapters schema:Chapter .
 
-
+    oc:about a rdf:Property ;
+        rdfs:label "about" ;
+        schema:domainIncludes skos:Concept ;
+        schema:rangeIncludes skos:Concept;
+        rdfs:comment "The content of a chapter, is about..." .
 
 ##### ENTITIES
 
@@ -46,6 +50,7 @@ oce:KnowledgeGraphTableOfContent a oc:TableOfContents;
         schema:hasParts oce:IntroductionChap1,
             oce:ConceptualDef,
             oce:EmpiricalDef .
+        oc:about oc:KnowledgeGraph TODO what entity here? Definition?
 
             # SUB CHAPTER 1
 
@@ -54,7 +59,16 @@ oce:KnowledgeGraphTableOfContent a oc:TableOfContents;
                 schema:pageStart 13 ;
                 schema:pageEnd 14 ;
                 schema:pagination 1.1 .
-
+                oc:about oce:Agents,
+                    oce:Bot,
+                    Oce:SmartSpeaker,
+                    oce:BigData,
+                    oc:KnowledgeGraph,
+                    oce:Annotation,
+                    oce:WorldWideWeb,
+                    oce:MachineLearning,
+                    oce:Automation,
+                    oce:Knowledge
 
                 # SUB SUB CHAPTER 1
 
