@@ -13,7 +13,7 @@
 
 
 ##### VOCAB
-k
+
 
 schema:publicAccess schema:domainIncludes oc:KnowledgeGraph .
 
