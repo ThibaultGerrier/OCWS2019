@@ -220,7 +220,7 @@ oce:smtfyAnnotationEditor a schema:WebApplication;
     schema:hasPart [
         a schema:HowTo;
         schema:name "Create an Annotation";
-        schema:yied oce:Annotation;
+        schema:yield oce:Annotation;
         schema:step: [
             a schema:HowToStep;
             schema:position "1"^^xsd:integer;
