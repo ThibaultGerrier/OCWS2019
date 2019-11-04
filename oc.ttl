@@ -36,6 +36,18 @@ oc:numProperties a rdf:Property ;
     schema:rangeIncludes schema:Number;
     rdfs:comment "The number of properties in an ontology" .
 
+oc:understand a rdf:Property ;
+    rdfs:label "understanding" ;
+    schema:domainIncludes oc:Concept ;
+    schema:rangeIncludes oc:Concept;
+    rdfs:comment "The ability to understand something; comprehension and the power of abstract thought; intellect." .
+
+oc:utilizes a rdf:Property ;
+    rdfs:label "utilizes" ;
+    schema:domainIncludes oc:Concept ;
+    schema:rangeIncludes oc:Concept;
+    rdfs:comment "Make practical and effective use of." .
+
    ### CLASS
 
 oc:KnowledgeGraph a rdfs:Class ;
@@ -55,11 +67,11 @@ oc:ProprietaryKnowledgeGraph a rdfs:Class ;
     rdfs:comment "Various Knowledge Graphs have been developed by companies to enable their customers' applications." ;
     rdfs:subClassOf oc:KnowledgeGraph .
 
-oc:Concept a schema:CreativeWork, skos:Concept ;
+oc:Concept a rdfs:Class ;
     rdfs:label "Concept" ;
-    schema:domainIncludes schema:CreativeWork, skos:Concept ;
-    schema:rangeIncludes schema:CreativeWork, skos:Concept ;;
-    rdfs:comment "A scientific concept is an idea or model. explaining some natural phenomenon." .
+    rdfs:comment "A scientific concept is an idea or model. explaining some natural phenomenon." ;
+    rdfs:subClassOf schema:CreativeWork, skos:Concept.
+
 
 ##### ENTITIES
 
@@ -75,13 +87,8 @@ oce:TheBook a schema:Book;
         schema:name "Springer";
     ];
     schema:bookFormat schema:Paperback;
-    schema:review [
-        a schema:Review;
-        schema:author "ThibaultG";
-        schema:reviewBody "Puh..";
-    ];
     schema:author oce:DieterFensel,
-        oce:UmutcabSimsek,
+        oce:UmutcanSimsek,
         oce:KevinAngele,
         oce:ElwinHuaman,
         oce:EliasKaerle,
@@ -95,8 +102,7 @@ oce:TheBook a schema:Book;
         oce:WhyKG,
         oce:Conclusion,
         oce:References,
-        oce:Index ;
-    schema:about oce:BuildKG .
+        oce:Index .
 
 #CHAPTER
 
@@ -108,12 +114,23 @@ oce:IntroWhatIsKG a schema:Chapter;
     schema:hasPart oce:IntroductionChap1,
         oce:ConceptualDef,
         oce:EmpiricalDef .
+    # schema:about oc:KnowledgeGraph . TODO what entity here? Definition?
 
 oce:IntroductionChap1 a schema:Chapter ;
     schema:name "Introduction";
     schema:pageStart 13 ;
     schema:pageEnd 14 ;
-    schema:pagination 1.1 .
+    schema:pagination 1.1 ;
+    schema:about oce:Agents,
+         oce:Bot,
+         oce:SmartSpeaker,
+         oce:BigData,
+         # oc:KnowledgeGraph,
+         oce:Annotation,
+         oce:WorldWideWeb,
+         oce:MachineLearning,
+         oce:Automation,
+         oce:Knowledge.
 
 oce:ConceptualDef a schema:Chapter ;
     schema:name "A conceptual definition of Knowledge Graphs";
@@ -146,7 +163,8 @@ oce:HowToBuildKG a schema:Chapter ;
     schema:name "How to build a Knowledge Graph";
     schema:pageStart 23 ;
     schema:pageEnd 85 ;
-    schema:pagination 2 .
+    schema:pagination 2 ;
+    schema:about oce:BuildKG .
     # schema:hasPart <TODO subchapters> .
 
 oce:HowToUseKG a schema:Chapter ;
@@ -188,7 +206,7 @@ oce:DieterFensel a schema:Person;
     schema:name "Dieter Fensel";
     schema:memberOf oce:STI. # /affiliation/worksFor
 
-oce:UmutcabSimsek a schema:Person;
+oce:UmutcanSimsek a schema:Person;
     schema:name "Umutcan Şimşek";
     schema:memberOf oce:STI.
 
@@ -422,3 +440,72 @@ oce:UnifyingReasoningArticle a schema:ScholarlyArticle ;
             schema:volumeNumber: "11" ;
         ] ;
     ] .
+
+
+
+# Introduction
+
+
+oce:Agents a oc:Concept;
+    rdfs:label "Agents" ;
+    skos:prefLabel "An Agent is a software object capable of contributing to the accomplishment of a task by Accessing domain knowledge, Reasoning about it’s task, Composing meaningful messages, Sending them to other agents or humans, Interpreting received messages, Making decisions based on domain knowledge and collected information or Acting upon decisions in a meaningful manner.";
+    skos:semanticRelation oce:Bot,
+        oce:SmartSpeaker,
+        oce:DialogueSystem ;
+    oc:understand oce:SemanticAnnotations .
+
+oce:Bot a oc:Concept ;
+    rdfs:label "Bot" ;
+    skos:prefLabel "An autonomous program on a network (especially the Internet) which can interact with systems or users, especially one designed to behave like a player in some video games." .
+
+oce:SmartSpeaker a oc:Concept;
+    rdfs:label "SmartSpeaker" ;
+    skos:prefLabel "An Internet-enabled speaker that is controlled by spoken commands and capable of streaming audio content, relaying information, and communicating with other devices.";
+    oc:utilizes oce:DialogueSystem .
+
+oce:DialogueSystem a oc:Concept;
+    rdfs:label "Dialogue System";
+    skos:prefLabel "Dialogue System or conversational agent (CA), is a computer system intended to converse with a human. Dialogue systems employed one or more of text, speech, graphics, haptics, gestures, and other modes for communication on both the input and output channel.";
+    oc:utilizes oce:SemanticAnnotation .
+
+oce:BigData a oc:Concept;
+    rdfs:label "BigData" ;
+    skos:prefLabel "Extremely large data sets that may be analysed computationally to reveal patterns, trends, and associations, especially relating to human behaviour and interactions." .
+
+oce:WorldWideWeb a oc:Concept;
+    rdfs:label "World Wide Web";
+    skos:prefLabel "An information system on the Internet which allows documents to be connected to other documents by hypertext links, enabling the user to search for information by moving from one document to another." .
+
+oce:MachineLearning a oc:Concept;
+    rdfs:label "Machine Learning";
+    skos:prefLabel "Machine learning is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead. It is seen as a subset of artificial intelligence.";
+    skos:hasTopConcept oce:ArtificialIntelligence ;
+    oc:utilizes oce:BigData .
+
+oce:ArtificialIntelligence a oc:Concept;
+    rdfs:label "Artificial Intelligence";
+    skos:prefLabel "The theory and development of computer systems able to perform tasks normally requiring human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.";
+    skos:topConceptOf oce:MachineLearning ;
+    oc:utilizes oce:BigData .
+
+oce:Automation a oc:Concept;
+    skos:prefLabel "The use or introduction of automatic equipment in a manufacturing or other process or facility." .
+
+oce:SemanticAnnotation a oc:Concept;
+    skos:prefLabel "Semantic annotation (also known as semantic tagging or semantic enrichment) is the process of attaching additional information to various concepts (e.g., people, things, places, organizations, etc.) in a given text or any other content. Unlike classic text annotations, which are for the reader’s reference, semantic annotations are used by machines." .
+
+oce:Knowledge a oc:Concept;
+    skos:prefLabel "Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject.";
+    schema:isBasedOn oce:SemanticReasoner,
+                oce:SchemaOrg,
+                oce:BigData,
+                oce:MachineLearning .
+
+oce:SemanticReasoner a oc:Concept;
+    skos:prefLabel "A semantic reasoner, reasoning engine, rules engine, or simply a reasoner, is a piece of software able to infer logical consequences from a set of asserted facts or axioms. The notion of a semantic reasoner generalizes that of an inference engine, by providing a richer set of mechanisms to work with." .
+
+oce:Graph a oc:Concept;
+    skos:prefLabel "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related";
+    skos:topConceptOf oce:SimpleGraph,
+        oce:UndirectedGraph,
+        oce:DirectedGraph .
