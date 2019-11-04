@@ -40,7 +40,7 @@ oc:KnowledgeGraph a rdfs:Class ;
     rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
     rdfs:subClassOf schema:Dataset .
 
-    TODO add different types of comments / definitions --> Empirical (Chapter 1.3), Conceptual (Chapter 1.2)
+# TODO add different types of comments / definitions --> Empirical (Chapter 1.3), Conceptual (Chapter 1.2)
 
 oc:OpenKnowledgeGraph a rdfs:Class ;
     rdfs:label "OpenKnowledgeGraph" ;
@@ -79,11 +79,12 @@ oce:TheBook a schema:Book;
         oce:OleksandraPanasiuk,
         oce:IoanToma,
         oce:JürgenUmbrich,
-        oce:AlexanderWahler;
-    dcterms:tableOfContents  [
-        ##TODO
-    ] ;
-    schema:about oce:BuildKG.
+        oce:AlexanderWahler ;
+    ## TODO
+    # dcterms:tableOfContents  [
+    #
+    # ] .
+    schema:about oce:BuildKG .
 
 
 oce:DieterFensel a schema:Person;
@@ -192,7 +193,7 @@ oce:Cyc a oc:ProprietaryKnowledgeGraph ;
 oce:FacebooksEntitiesGraph a oc:ProprietaryKnowledgeGraph ;
     schema:publicAccess "true"^^xsd:boolean ; # accessible via the Facebook Graph API?!
     schema:name "FacebooksEntitiesGraph";
-    schema:description "Facebook's Entities Graph is maintained by Facebook and used internally to support the graph search functionality."
+    schema:description "Facebook's Entities Graph is maintained by Facebook and used internally to support the graph search functionality." ;
     schema:datePublished "2010-01-01"^^xsd:date;
     oce:numTripples "500 000 000 000"^^xsd:integer.
 
@@ -298,14 +299,14 @@ oce:SemanticWebArticle a schema:ScholarlyArticle ;
     schema:pageStart: "24" ;
     schema:pageEnd: "25" ;
     schema:isPartOf [
-        oce:IEEEIntelligentSystemsPublicationIssue16_2 a schema:PublicationIssue ;
+        a schema:PublicationIssue ;
         schema:issueNumber: "2" ;
         schema:datePublished: "2001" ;
         schema:isPartOf [
-            oce:IEEEIntelligentSystemsPublicationVolume16 a schema:PublicationVolume ;
+            a schema:PublicationVolume ;
             schema:name: "IEEE Intelligent Systems" ;
             schema:volumeNumber: "16" ;
-        ] .
+        ] ;
     ] .
 
 oce:UnifyingReasoningArticle a schema:ScholarlyArticle ;
@@ -315,12 +316,12 @@ oce:UnifyingReasoningArticle a schema:ScholarlyArticle ;
     schema:pageStart: "95" ;
     schema:pageEnd: "96" ;
     schema:isPartOf [
-        oce:IEEEInternetComputingPublicationIssue11_2 a schema:PublicationIssue ;
+        a schema:PublicationIssue ;
         schema:issueNumber: "2" ;
         schema:datePublished: "2007" ;
         schema:isPartOf [
-            oce:IEEEInternetComputingPublicationVolume11 a schema:PublicationVolume ;
-            schema:name: "IEEE Internet Computing"
+            a schema:PublicationVolume ;
+            schema:name: "IEEE Internet Computing" ;
             schema:volumeNumber: "11" ;
-        ] .
+        ] ;
     ] .
