@@ -47,7 +47,7 @@ oce:KnowledgeGraphTableOfContent a oc:TableOfContents;
         schema:pageStart 13 ;
         schema:pageEnd 23 ;
         schema:pagination 1 ;
-        schema:hasParts oce:IntroductionChap1,
+        schema:hasPart oce:IntroductionChap1,
             oce:ConceptualDef,
             oce:EmpiricalDef .
         oc:about oc:KnowledgeGraph TODO what entity here? Definition?
@@ -83,7 +83,7 @@ oce:KnowledgeGraphTableOfContent a oc:TableOfContents;
                     schema:pageStart 18 ;
                     schema:pageEnd 23 ;
                     schema:pagination 1.3 ;
-                    schema:hasParts oce:OpenKG,
+                    schema:hasPart oce:OpenKG,
                         oce:OpenPropKG .
 
 
@@ -109,7 +109,7 @@ oce:KnowledgeGraphTableOfContent a oc:TableOfContents;
         schema:pageStart 23 ;
         schema:pageEnd 85 ;
         schema:pagination 2 ;
-        schema:hasParts <TODO subchapters> .
+        schema:hasPart <TODO subchapters> .
 
         # SUB CHAPTER 2
             # SUB SUB CHAPTER 2
@@ -124,7 +124,7 @@ oce:KnowledgeGraphTableOfContent a oc:TableOfContents;
         schema:pageStart 85 ;
         schema:pageEnd 111 ;
         schema:pagination 3 ;
-        schema:hasParts <TODO subchapters> .
+        schema:hasPart <TODO subchapters> .
 
         # SUB CHAPTER 3
             # SUB SUB CHAPTER 3
@@ -137,7 +137,7 @@ oce:KnowledgeGraphTableOfContent a oc:TableOfContents;
         schema:pageStart 111 ;
         schema:pageEnd 129 ;
         schema:pagination 4 ;
-        schema:hasParts <TODO subchapters> .
+        schema:hasPart <TODO subchapters> .
 
         # SUB CHAPTER 4
             # SUB SUB CHAPTER 4
