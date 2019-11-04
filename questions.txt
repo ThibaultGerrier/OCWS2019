@@ -4,3 +4,7 @@
 4) Tell me some Proprietary Knowledge Graphs!
 5) What is a graph?
 6) Which Knowledge Graph has the highest number of tripples?
+7) Who are the authors of the book with the name "Knowledge Graphs Methodology, Tools and Selected Use Cases"?
+8) How to build a Knowledge Graph? / How to build an Annotation?
+9) Tell me the chapters of the book with the name "Knowledge Graphs Methodology, Tools and Selected Use Cases"?
+10) Tell me scholary articles with author Dieter Fensel!
