@@ -122,6 +122,12 @@ oce:AlexanderWahler a schema:Person;
     schema:name "Alexander Wahler";
     schema:memberOf oce:Onlim.
 
+oce:MarkMusen a schema:Person ;
+    schema:name "Mark A Musen" .
+
+oce:FrankHarmelen a schema:Person ;
+    schema:name "Frank Harmelen" .
+
 oce:STI a schema:Organization ;
     schema:name "Semantic Technology Institute Innsbruck";
     schema:address [
@@ -263,24 +269,58 @@ oce:VerificationReportScreen2Shot a schema:ImageObject, dbpedia:Reference;
     schema:about oce:Verificator.
 
 oce:BuildKG a schema:HowTo ;
-    schema:name "How to build a knowledge graph";
+    schema:name "How to build a knowledge graph" ;
     schema:steps [
         a schema:HowToSection;
-        schema:name "knowledge creation";
-        schema:position "1";
+        schema:name "knowledge creation" ;
+        schema:position "1" ;
         #TODO further elaborate
     ], [
-        a schema:HowToSection;
-        schema:name "knowledge hosting";
-        schema:position "2";
+        a schema:HowToSection ;
+        schema:name "knowledge hosting" ;
+        schema:position "2" ;
          #TODO further elaborate
     ], [
         a schema:HowToSection;
-        schema:name "knowledge curation";
-        schema:position "3";
+        schema:name "knowledge curation" ;
+        schema:position "3" ;
     ], [
         a schema:HowToSection;
         schema:name "knowledge deployment";
         schema:position "4";
     ];
-    schema:yield oc:KnowledgeGraph.
+    schema:yield oc:KnowledgeGraph .
+
+oce:SemanticWebArticle a schema:ScholarlyArticle ;
+    schema:name "The Semantic Web: A Brain for Humankind" ;
+    schema:author oce:DieterFensel,
+        oce:MarkMusen ;
+    schema:pageStart: "24" ;
+    schema:pageEnd: "25" ;
+    schema:isPartOf [
+        oce:IEEEIntelligentSystemsPublicationIssue16_2 a schema:PublicationIssue ;
+        schema:issueNumber: "2" ;
+        schema:datePublished: "2001" ;
+        schema:isPartOf [
+            oce:IEEEIntelligentSystemsPublicationVolume16 a schema:PublicationVolume ;
+            schema:name: "IEEE Intelligent Systems" ;
+            schema:volumeNumber: "16" ;
+        ] .
+    ] .
+
+oce:UnifyingReasoningArticle a schema:ScholarlyArticle ;
+    schema:name "Unifying Reasoning and Search to Web Scale" ;
+    schema:author oce:DieterFensel,
+        oce:FrankHarmelen ;
+    schema:pageStart: "95" ;
+    schema:pageEnd: "96" ;
+    schema:isPartOf [
+        oce:IEEEInternetComputingPublicationIssue11_2 a schema:PublicationIssue ;
+        schema:issueNumber: "2" ;
+        schema:datePublished: "2007" ;
+        schema:isPartOf [
+            oce:IEEEInternetComputingPublicationVolume11 a schema:PublicationVolume ;
+            schema:name: "IEEE Internet Computing"
+            schema:volumeNumber: "11" ;
+        ] .
+    ] .
