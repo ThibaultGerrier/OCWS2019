@@ -137,11 +137,10 @@ oce:Onlim a schema:Organization ;
         schema:addressLocality "Telfs";
     ].
 
-
 oce:SchemaOrg a schema:Website, owl:Ontology;
     schema:name "Schema.org" ;
     schema:description "Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.";
-    schema:url "https://semantify.it/" ;
+    schema:url "https://schema.org/" ;
     schema:datePublished "2011-01-01"^^xsd:date; #dct:issued
     schema:creator "Google", "Yahoo!", "Bing", "Yandex". # do orgs instead if used elsewhere
 
