@@ -19,31 +19,31 @@
 schema:publicAccess schema:domainIncludes oc:KnowledgeGraph .
 
 oc:numTripples a rdf:Property ;
-    rdfs:label "numTripples" ;
+    schema:name "numTripples" ;
     schema:domainIncludes oc:KnowledgeGraph ;
     schema:rangeIncludes schema:Number;
     rdfs:comment "The number of tripples in a knowledge graph" .
 
 oc:numClasses a rdf:Property ;
-    rdfs:label "numClasses" ;
+    schema:name "numClasses" ;
     schema:domainIncludes owl:Ontology ;
     schema:rangeIncludes schema:Number;
     rdfs:comment "The number of classes in an ontology" .
 
 oc:numProperties a rdf:Property ;
-    rdfs:label "numProperties" ;
+    schema:name "numProperties" ;
     schema:domainIncludes owl:Ontology ;
     schema:rangeIncludes schema:Number;
     rdfs:comment "The number of properties in an ontology" .
 
 oc:understand a rdf:Property ;
-    rdfs:label "understanding" ;
+    schema:name "understanding" ;
     schema:domainIncludes oc:Concept ;
     schema:rangeIncludes oc:Concept;
     rdfs:comment "The ability to understand something; comprehension and the power of abstract thought; intellect." .
 
 oc:utilizes a rdf:Property ;
-    rdfs:label "utilizes" ;
+    schema:name "utilizes" ;
     schema:domainIncludes oc:Concept ;
     schema:rangeIncludes oc:Concept;
     rdfs:comment "Make practical and effective use of." .
@@ -51,24 +51,24 @@ oc:utilizes a rdf:Property ;
    ### CLASS
 
 oc:KnowledgeGraph a rdfs:Class ;
-    rdfs:label "KnowledgeGraph" ;
+    schema:name "KnowledgeGraph" ;
     rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
     rdfs:subClassOf schema:Dataset .
 
 # TODO add different types of comments / definitions --> Empirical (Chapter 1.3), Conceptual (Chapter 1.2)
 
 oc:OpenKnowledgeGraph a rdfs:Class ;
-    rdfs:label "OpenKnowledgeGraph" ;
+    schema:name "OpenKnowledgeGraph" ;
     rdfs:comment "The research on semantic web and linked data led to many open datasets eventually to comprise the Linked Open Data cloud. These datasets are now mostly rebranded as Knowledge Graphs." ;
     rdfs:subClassOf oc:KnowledgeGraph .
 
 oc:ProprietaryKnowledgeGraph a rdfs:Class ;
-    rdfs:label "ProprietaryKnowledgeGraph" ;
+    schema:name "ProprietaryKnowledgeGraph" ;
     rdfs:comment "Various Knowledge Graphs have been developed by companies to enable their customers' applications." ;
     rdfs:subClassOf oc:KnowledgeGraph .
 
 oc:Concept a rdfs:Class ;
-    rdfs:label "Concept" ;
+    schema:name "Concept" ;
     rdfs:comment "A scientific concept is an idea or model. explaining some natural phenomenon." ;
     rdfs:subClassOf schema:CreativeWork, skos:Concept.
 
@@ -347,11 +347,6 @@ oce:smtfyAnnotationEditor a schema:WebApplication;
         ];
     ] .
 
-oce:Annotation a schema:CreativeWork;
-    schema:name "JsonLD Annotataion";
-    schema:encodingFormat "application/ld+json".
-
-
 oce:schemaOrgHotelScreenshot a schema:ImageObject, dbpedia:Reference;
     dbpedia:atPage "30" ;
     schema:url "http://schema.org/Hotel" ;
@@ -447,65 +442,71 @@ oce:UnifyingReasoningArticle a schema:ScholarlyArticle ;
 
 
 oce:Agents a oc:Concept;
-    rdfs:label "Agents" ;
-    skos:prefLabel "An Agent is a software object capable of contributing to the accomplishment of a task by Accessing domain knowledge, Reasoning about it’s task, Composing meaningful messages, Sending them to other agents or humans, Interpreting received messages, Making decisions based on domain knowledge and collected information or Acting upon decisions in a meaningful manner.";
+    schema:name "Agents" ;
+    schema:description "An Agent is a software object capable of contributing to the accomplishment of a task by Accessing domain knowledge, Reasoning about it’s task, Composing meaningful messages, Sending them to other agents or humans, Interpreting received messages, Making decisions based on domain knowledge and collected information or Acting upon decisions in a meaningful manner.";
     skos:semanticRelation oce:Bot,
         oce:SmartSpeaker,
         oce:DialogueSystem ;
     oc:understand oce:SemanticAnnotations .
 
 oce:Bot a oc:Concept ;
-    rdfs:label "Bot" ;
-    skos:prefLabel "An autonomous program on a network (especially the Internet) which can interact with systems or users, especially one designed to behave like a player in some video games." .
+    schema:name "Bot" ;
+    schema:description "An autonomous program on a network (especially the Internet) which can interact with systems or users, especially one designed to behave like a player in some video games." .
 
 oce:SmartSpeaker a oc:Concept;
-    rdfs:label "SmartSpeaker" ;
-    skos:prefLabel "An Internet-enabled speaker that is controlled by spoken commands and capable of streaming audio content, relaying information, and communicating with other devices.";
+    schema:name "SmartSpeaker" ;
+    schema:description "An Internet-enabled speaker that is controlled by spoken commands and capable of streaming audio content, relaying information, and communicating with other devices.";
     oc:utilizes oce:DialogueSystem .
 
 oce:DialogueSystem a oc:Concept;
-    rdfs:label "Dialogue System";
-    skos:prefLabel "Dialogue System or conversational agent (CA), is a computer system intended to converse with a human. Dialogue systems employed one or more of text, speech, graphics, haptics, gestures, and other modes for communication on both the input and output channel.";
+    schema:name "Dialogue System";
+    schema:description "Dialogue System or conversational agent (CA), is a computer system intended to converse with a human. Dialogue systems employed one or more of text, speech, graphics, haptics, gestures, and other modes for communication on both the input and output channel.";
     oc:utilizes oce:SemanticAnnotation .
 
 oce:BigData a oc:Concept;
-    rdfs:label "BigData" ;
-    skos:prefLabel "Extremely large data sets that may be analysed computationally to reveal patterns, trends, and associations, especially relating to human behaviour and interactions." .
+    schema:name "BigData" ;
+    schema:description "Extremely large data sets that may be analysed computationally to reveal patterns, trends, and associations, especially relating to human behaviour and interactions." .
 
 oce:WorldWideWeb a oc:Concept;
-    rdfs:label "World Wide Web";
-    skos:prefLabel "An information system on the Internet which allows documents to be connected to other documents by hypertext links, enabling the user to search for information by moving from one document to another." .
+    schema:name "World Wide Web";
+    schema:description "An information system on the Internet which allows documents to be connected to other documents by hypertext links, enabling the user to search for information by moving from one document to another." .
 
 oce:MachineLearning a oc:Concept;
-    rdfs:label "Machine Learning";
-    skos:prefLabel "Machine learning is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead. It is seen as a subset of artificial intelligence.";
+    schema:name "Machine Learning";
+    schema:description "Machine learning is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead. It is seen as a subset of artificial intelligence.";
     skos:hasTopConcept oce:ArtificialIntelligence ;
     oc:utilizes oce:BigData .
 
 oce:ArtificialIntelligence a oc:Concept;
-    rdfs:label "Artificial Intelligence";
-    skos:prefLabel "The theory and development of computer systems able to perform tasks normally requiring human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.";
+    schema:name "Artificial Intelligence";
+    schema:description "The theory and development of computer systems able to perform tasks normally requiring human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.";
     skos:topConceptOf oce:MachineLearning ;
     oc:utilizes oce:BigData .
 
 oce:Automation a oc:Concept;
-    skos:prefLabel "The use or introduction of automatic equipment in a manufacturing or other process or facility." .
+    schema:name "Automation";
+    schema:description "The use or introduction of automatic equipment in a manufacturing or other process or facility." .
 
-oce:SemanticAnnotation a oc:Concept;
-    skos:prefLabel "Semantic annotation (also known as semantic tagging or semantic enrichment) is the process of attaching additional information to various concepts (e.g., people, things, places, organizations, etc.) in a given text or any other content. Unlike classic text annotations, which are for the reader’s reference, semantic annotations are used by machines." .
+oce:Annotation a oc:Concept;
+    schema:description "Semantic annotation (also known as semantic tagging or semantic enrichment) is the process of attaching additional information to various concepts (e.g., people, things, places, organizations, etc.) in a given text or any other content. Unlike classic text annotations, which are for the reader’s reference, semantic annotations are used by machines." ;
+    schema:name "Annotataion";
+    schema:encodingFormat "application/ld+json".
 
 oce:Knowledge a oc:Concept;
-    skos:prefLabel "Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject.";
+    schema:name "Knowledge" ;
+    schema:description "Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject.";
     schema:isBasedOn oce:SemanticReasoner,
                 oce:SchemaOrg,
                 oce:BigData,
                 oce:MachineLearning .
 
 oce:SemanticReasoner a oc:Concept;
-    skos:prefLabel "A semantic reasoner, reasoning engine, rules engine, or simply a reasoner, is a piece of software able to infer logical consequences from a set of asserted facts or axioms. The notion of a semantic reasoner generalizes that of an inference engine, by providing a richer set of mechanisms to work with." .
+    schema:name "Semantic Reasoner" ;
+    schema:description "A semantic reasoner, reasoning engine, rules engine, or simply a reasoner, is a piece of software able to infer logical consequences from a set of asserted facts or axioms. The notion of a semantic reasoner generalizes that of an inference engine, by providing a richer set of mechanisms to work with." .
 
 oce:Graph a oc:Concept;
-    skos:prefLabel "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related";
+    schema:name "Graph" ;
+    schema:description "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related";
     skos:topConceptOf oce:SimpleGraph,
         oce:UndirectedGraph,
         oce:DirectedGraph .
