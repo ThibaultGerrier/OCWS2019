@@ -447,7 +447,7 @@ oce:Agents a oc:Concept;
     skos:semanticRelation oce:Bot,
         oce:SmartSpeaker,
         oce:DialogueSystem ;
-    oc:understand oce:SemanticAnnotations .
+    oc:understand oce:Annotations .
 
 oce:Bot a oc:Concept ;
     schema:name "Bot" ;
@@ -461,7 +461,7 @@ oce:SmartSpeaker a oc:Concept;
 oce:DialogueSystem a oc:Concept;
     schema:name "Dialogue System";
     schema:description "Dialogue System or conversational agent (CA), is a computer system intended to converse with a human. Dialogue systems employed one or more of text, speech, graphics, haptics, gestures, and other modes for communication on both the input and output channel.";
-    oc:utilizes oce:SemanticAnnotation .
+    oc:utilizes oce:Annotation .
 
 oce:BigData a oc:Concept;
     schema:name "BigData" ;
