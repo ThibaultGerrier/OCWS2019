@@ -60,7 +60,7 @@ oc:Chapter11 a schema:Chapter ;
         oc:SmartSpeaker,
         oc:BigData,
         # oc:KnowledgeGraph,
-        oc:Annotation,
+        oc:Annotation,d
         oc:WorldWideWeb,
         oc:MachineLearning,
         oc:Automation,
@@ -303,7 +303,11 @@ oc:KG a kgb:Concept;
 
 oc:Graph a kgb:Concept;
     schema:name "Graph";
-    skos:definition "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related".
+    skos:definition [
+        "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related".
+        "A diagram showing the relation between variable quantities, typically of two variables, each measured along one of a pair of axes at right angles."
+    ]
+
 
 oc:Knowledge a kgb:Concept;
     schema:name "Knowledge".
@@ -767,3 +771,108 @@ oc:Graph a kgb:Concept;
     skos:topConceptOf oc:SimpleGraph,
         oc:UndirectedGraph,
         oc:DirectedGraph .
+
+oc:Ontology a kgb:Concept;
+    schema:name "Ontology" ;
+    kgb:uses oc:Knowledge .
+
+oc:SimpleGraph a kgb:Concept;
+    schema:name "SimpleGraph" ;
+    skos:broader oc:Graph .
+
+oc:UndirectedGraph a kgb:Concept;
+    schema:name "UndirectedGraph" ;
+    skos:broader oc:Graph .
+
+oc:DirectedGraph a kgb:Concept;
+    schema:name "DirectedGraph" ;
+    skos:broader oc:Graph .
+
+oc:OrientedGraph a kgb:Concept;
+    schema:name "OrientedGraph" ;
+    skos:broader oc:Graph .
+
+oc:MixedGraph a kgb:Concept;
+    schema:name "MixedGraph" ;
+    skos:broader oc:Graph .
+
+oc:MultiGraph a kgb:Concept;
+    schema:name "MultiGraph" ;
+    skos:broader oc:Graph .
+
+oc:FiniteGraph a kgb:Concept;
+    schema:name "FiniteGraph" ;
+    skos:broader oc:Graph .
+
+oc:InfiniteGraph a kgb:Concept;
+    schema:name "InfiniteGraph" ;
+    skos:broader oc:Graph .
+
+oc:QuiverGraph a kgb:Concept;
+    schema:name "QuiverGraph" ;
+    skos:broader oc:Graph .
+
+oc:WeightedGraph a kgb:Concept;
+    schema:name "WeightedGraph" ;
+    skos:broader oc:Graph .
+
+oc:HalfEdgedGraph a kgb:Concept;
+    schema:name "HalfEdgedGraph" ;
+    skos:broader oc:Graph .
+
+oc:LooseEdgeGraph a kgb:Concept;
+    schema:name "LooseEdgeGraph" ;
+    skos:broader oc:Graph .
+
+oc:PetriNet a kgb:Concept ;
+    schema:name "Petri-Nets" ;
+    skos:definition "http://scholarpedia.org/article/Petri_net" .
+
+oc:RDF a kgb:Concept ;
+    schema:name "Resource Description Framework (RDF)" ;
+    skos:definition "Provides global property definitions" .
+
+oc:RDFOWL a kgb:Concept ;
+    schema:name "Resource Description Framework (RDF) & Ontology Web Language (OWL)" ;
+    skos:definition "Interprete range restrictions as a means to infer new knowledge" .
+
+oc:KnowledgeLevel a kgb:Concept ;
+    schema:name "Knowledge Level" ;
+    skos:definition [
+        "Number of actions necessary to achive certain goal / knowledge",
+        "Knowlege Level is World oriented",
+        "Rationalizes Agents behavior"
+    ] ;
+    kgb:usedBy oc:Agent ;
+    skos:narrower oc:Knowledge .
+
+oc:SymbolLevel a kgb:Concept ;
+    schema:name "Symbol Level" ;
+    skos:definition [
+        "Knowledge is coded at the Symbol Level",
+        "Mechanizes Agents behavior"
+    ] ;
+    kgb:usedBy oc:Agent .
+
+oc:ImplementationLevel a kgb:Concept ;
+    schema:name "Implementation Level" ;
+    kgb:usedBy oc:KnowledgeGraph ;
+    skos:definition "KG is implemented with a graph based DataBase" ;
+    kgb:uses oc:Database .
+
+oc:KnowledgeBasedSystem a kgb:Concept ;
+    schema:name "Knowledge based system" ;
+    kgb:uses [
+        oc:KnowledgeBase,
+        oc:InferenceEngine
+    ] .
+
+oc:KnowledgeBase a kgb:Concept ;
+    schema:name "Knowledge Base" ;
+    skos:definition "containing the knowledge" ;
+    kgb:uses oc:Knowledge .
+
+oc:InferenceEngine a kgb:Concept ;
+    schema:name "Inference Engine" ;
+    skos:definition "Derive facts or answer questions over Knowledge Base" ;
+    kgb:uses oc:KnowledgeBase .

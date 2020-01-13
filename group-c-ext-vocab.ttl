@@ -1,0 +1,37 @@
+@prefix schema: <http://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix kgb: <http://www.kgb.ai> .
+
+
+##### Properties
+
+kgb:numTripples a rdf:Property ;
+    schema:name "numTripples" ;
+    schema:domainIncludes kgb:KnowledgeGraph ;
+    schema:rangeIncludes schema:Number;
+    rdfs:comment "The number of tripples in a knowledge graph" .
+
+kgb:reason a rdf:Property ;
+    schema:name "reasoning" ;
+    schema:domainIncludes kgb:Concept ;
+    schema:rangeIncludes kgb:Concept ;
+    rdfs:comment "The concept reasons with the help of another concept (range)" .
+
+### CLASSES
+
+kgb:KnowledgeGraph a rdfs:Class ;
+    schema:name "KnowledgeGraph" ;
+    rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
+    rdfs:subClassOf schema:Dataset .
+
+kgb:OpenKnowledgeGraph a rdfs:Class ;
+    schema:name "OpenKnowledgeGraph" ;
+    rdfs:comment "The research on semantic web and linked data led to many open datasets eventually to comprise the Linked Open Data cloud. These datasets are now mostly rebranded as Knowledge Graphs." ;
+    rdfs:subClassOf kgb:KnowledgeGraph .
+
+kgb:ProprietaryKnowledgeGraph a rdfs:Class ;
+    schema:name "ProprietaryKnowledgeGraph" ;
+    rdfs:comment "Various Knowledge Graphs have been developed by companies to enable their customers' applications." ;
+    rdfs:subClassOf kgb:KnowledgeGraph .
