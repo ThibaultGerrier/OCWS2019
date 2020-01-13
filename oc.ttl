@@ -1,85 +1,17 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix npg: <http://ns.nature.com/terms/> .
-@prefix dbpedia: <http://dbpedia.org/ontology/atPage> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix kgb: <http://kgbook.ai/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 @prefix oc: <http://www.oc.com/vocab/> .
-@prefix oce: <http://www.oc.com/entities/> .
 
+### THE BOOK
 
-##### VOCAB
-
-
-schema:publicAccess schema:domainIncludes oc:KnowledgeGraph .
-
-oc:numTripples a rdf:Property ;
-    schema:name "numTripples" ;
-    schema:domainIncludes oc:KnowledgeGraph ;
-    schema:rangeIncludes schema:Number;
-    rdfs:comment "The number of tripples in a knowledge graph" .
-
-oc:numClasses a rdf:Property ;
-    schema:name "numClasses" ;
-    schema:domainIncludes owl:Ontology ;
-    schema:rangeIncludes schema:Number;
-    rdfs:comment "The number of classes in an ontology" .
-
-oc:numProperties a rdf:Property ;
-    schema:name "numProperties" ;
-    schema:domainIncludes owl:Ontology ;
-    schema:rangeIncludes schema:Number;
-    rdfs:comment "The number of properties in an ontology" .
-
-oc:understand a rdf:Property ;
-    schema:name "understanding" ;
-    schema:domainIncludes oc:Concept ;
-    schema:rangeIncludes oc:Concept;
-    rdfs:comment "The ability to understand something; comprehension and the power of abstract thought; intellect." .
-
-oc:utilizes a rdf:Property ;
-    schema:name "utilizes" ;
-    schema:domainIncludes oc:Concept ;
-    schema:rangeIncludes oc:Concept;
-    rdfs:comment "Make practical and effective use of." .
-
-   ### CLASS
-
-oc:KnowledgeGraph a rdfs:Class ;
-    schema:name "KnowledgeGraph" ;
-    rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
-    rdfs:subClassOf schema:Dataset .
-
-# TODO add different types of comments / definitions --> Empirical (Chapter 1.3), Conceptual (Chapter 1.2)
-
-oc:OpenKnowledgeGraph a rdfs:Class ;
-    schema:name "OpenKnowledgeGraph" ;
-    rdfs:comment "The research on semantic web and linked data led to many open datasets eventually to comprise the Linked Open Data cloud. These datasets are now mostly rebranded as Knowledge Graphs." ;
-    rdfs:subClassOf oc:KnowledgeGraph .
-
-oc:ProprietaryKnowledgeGraph a rdfs:Class ;
-    schema:name "ProprietaryKnowledgeGraph" ;
-    rdfs:comment "Various Knowledge Graphs have been developed by companies to enable their customers' applications." ;
-    rdfs:subClassOf oc:KnowledgeGraph .
-
-oc:Concept a rdfs:Class ;
-    schema:name "Concept" ;
-    rdfs:comment "A scientific concept is an idea or model. explaining some natural phenomenon." ;
-    rdfs:subClassOf schema:CreativeWork, skos:Concept.
-
-
-##### ENTITIES
-
-
-oce:TheBook a schema:Book;
-    a dbpedia:WrittenWork;
+oc:TheBook a schema:Book;
     schema:name "Knowledge Graphs Methodology, Tools and Selected Use Cases";
-    schema:numberOfPages "178"^^xsd:integer; # eq to dbpedia:numberOfPages
+    schema:numberOfPages "178"^^xsd:integer;
     schema:datePublished "2019-09-30"^^xsd:date;
     schema:inLanguage "en-US";
     schema:publisher [
@@ -87,171 +19,251 @@ oce:TheBook a schema:Book;
         schema:name "Springer";
     ];
     schema:bookFormat schema:Paperback;
-    schema:author oce:DieterFensel,
-        oce:UmutcanSimsek,
-        oce:KevinAngele,
-        oce:ElwinHuaman,
-        oce:EliasKaerle,
-        oce:OleksandraPanasiuk,
-        oce:IoanToma,
-        oce:JürgenUmbrich,
-        oce:AlexanderWahler ;
-    schema:hasPart  oce:IntroWhatIsKG,
-        oce:HowToBuildKG,
-        oce:HowToUseKG,
-        oce:WhyKG,
-        oce:Conclusion,
-        oce:References,
-        oce:Index .
+    schema:author oc:DieterFensel,
+        oc:UmutcanSimsek,
+        oc:KevinAngele,
+        oc:ElwinHuaman,
+        oc:EliasKaerle,
+        oc:OleksandraPanasiuk,
+        oc:IoanToma,
+        oc:JürgenUmbrich,
+        oc:AlexanderWahler ;   
+    schema:hasPart  oc:Chapter1,
+        oc:Chapter2,
+        oc:Chapter3,
+        oc:Chapter4,
+        oc:Chapter5,
+        oc:References,
+        oc:Appendix,
+        oc:Index .
 
-#CHAPTER
+### CHAPTERS
 
-oce:IntroWhatIsKG a schema:Chapter;
+oc:Chapter1 a schema:Chapter;
     schema:name "Introduction: What is a Knowledge Graph?";
     schema:pageStart 13 ;
     schema:pageEnd 23 ;
-    schema:pagination 1 ;
-    schema:hasPart oce:IntroductionChap1,
-        oce:ConceptualDef,
-        oce:EmpiricalDef .
+    schema:position "1" ;
+    schema:abstract "Since its inception by Google, Knowledge Graph has become a term that is recently ubiquitously used yet does not have a well-established definition. This section attempts to derive a definition for Knowledge Graphs by compiling existing definitions made in the literature and considering the distinctive characteristics of previous efforts for tackling the data integration challenge we are facing today. Our attempt to make a conceptual definition is complemented with an empirical survey of existing Knowledge Graphs. This section lays the foundation for the remainder of the book, as it provides a common understanding on certain concepts and motivation to build Knowledge Graphs in the first place.";
+    schema:hasPart oc:Chapter11,
+        oc:Chapter12,
+        oc:Chapter13 .
     # schema:about oc:KnowledgeGraph . TODO what entity here? Definition?
 
-oce:IntroductionChap1 a schema:Chapter ;
+oc:Chapter11 a schema:Chapter ;
     schema:name "Introduction";
     schema:pageStart 13 ;
     schema:pageEnd 14 ;
-    schema:pagination 1.1 ;
-    schema:about oce:Agents,
-         oce:Bot,
-         oce:SmartSpeaker,
-         oce:BigData,
-         # oc:KnowledgeGraph,
-         oce:Annotation,
-         oce:WorldWideWeb,
-         oce:MachineLearning,
-         oce:Automation,
-         oce:Knowledge.
+    schema:pagination "1.1" ;
+    schema:about oc:Agents,
+        oc:Bot,
+        oc:SmartSpeaker,
+        oc:BigData,
+        # oc:KnowledgeGraph,
+        oc:Annotation,
+        oc:WorldWideWeb,
+        oc:MachineLearning,
+        oc:Automation,
+        oc:Knowledge.
 
-oce:ConceptualDef a schema:Chapter ;
+oc:Chapter12 a schema:Chapter ;
     schema:name "A conceptual definition of Knowledge Graphs";
     schema:pageStart 14 ;
     schema:pageEnd 18 ;
-    schema:pagination 1.2 .
+    schema:position "1.2" .
 
-oce:EmpiricalDef a schema:Chapter ;
+oc:Chapter13 a schema:Chapter ;
     schema:name "An empirical definition of Knowledge Graphs";
     schema:pageStart 18 ;
     schema:pageEnd 23 ;
-    schema:pagination 1.3 ;
-    schema:hasPart oce:OpenKG,
-        oce:OpenPropKG .
+    schema:position "1.3" ;
+    schema:hasPart oc:Chapter131,
+        oc:Chapter132 .
 
-oce:OpenKG a schema:Chapter ;
+oc:Chapter131 a schema:Chapter ;
     schema:name "Open Knowledge Graphs";
     schema:pageStart 18 ;
     schema:pageEnd 21 ;
-    schema:pagination "1.3.1" .
+    schema:position "1.3.1" .
 
-oce:OpenPropKG a schema:Chapter ;
+oc:Chapter132 a schema:Chapter ;
     schema:name "Proprietary Knowledge Graphs";
     schema:pageStart 21 ;
     schema:pageEnd 23 ;
-    schema:pagination "1.3.2" .
+    schema:position "1.3.2" .
 
-
-oce:HowToBuildKG a schema:Chapter ;
+oc:Chapter2 a schema:Chapter ;
     schema:name "How to build a Knowledge Graph";
     schema:pageStart 23 ;
     schema:pageEnd 85 ;
-    schema:pagination 2 ;
-    schema:about oce:BuildKG .
-    # schema:hasPart <TODO subchapters> .
+    schema:position "2" ;
+    schema:abstract "This Section outlines the state-of-the-art of Knowledge Graph technologies by introducing the process of building a Knowledge Graph. We define the following major steps of an overall process model: 1) Knowledge Creation 2) Knowledge Hosting, 3) Knowledge Curation, and 4) Knowledge Deployment. We demonstrate the methodology for the Knowledge Creation process that creates, extracts, and structures the fact base for a Knowledge Graph. We describe the process of knowledge collection, storage, and retrieval that implements established knowledge in a graph-based storage system. We analyze existing methods and tools to improve the quality of a large Knowledge Graph. For the Knowledge Curation process, we establish sub-steps, such as Knowledge Assessment, Cleaning, and Enrichment. For each of them, we determine various categories and dimensions that have been developed and described in the literature, and identify tasks which can be applied (e.g. Knowledge Graph completion and correctness, error detection and correction, identifying and resolving duplicates). Finally, we describe the deployment process of a Knowledge Graph based on the following principles: findability, accessibility, interoperability, and reusability.";
+    schema:about oc:BuildKG .
 
-oce:HowToUseKG a schema:Chapter ;
+oc:Chapter21 a schema:Chapter ;
     schema:name "How to build a Knowledge Graph";
+    schema:pageStart 23 ;
+    schema:pageEnd 26 ;
+    schema:position "2.1" .
+
+oc:Chapter22 a schema:Chapter ;
+    schema:name "Knowledge Creation";
+    schema:pageStart 26 ;
+    schema:pageEnd 45 ;
+    schema:position "2.2" .
+
+oc:Chapter221 a schema:Chapter ;
+    schema:name "Knowledge Creation Methodology";
+    schema:pageStart 26 ;
+    schema:pageEnd 28 ;
+    schema:position "2.2.1" .
+
+oc:Chapter222 a schema:Chapter ;
+    schema:name "Our Modelling Language";
+    schema:pageStart 28 ;
+    schema:pageEnd 34 ;
+    schema:position "2.2.2" .
+
+oc:Chapter223 a schema:Chapter ;
+    schema:name "Knowledge Generation Tools";
+    schema:pageStart 34 ;
+    schema:pageEnd 45 ;
+    schema:position "2.2.3" .
+
+oc:Chapter2231 a schema:Chapter ;
+    schema:name "Manual Editing";
+    schema:pageStart 34 ;
+    schema:pageEnd 34 ;
+    schema:position "2.2.3.1" .
+
+oc:Chapter2232 a schema:Chapter ;
+    schema:name "Semi-automatic Editing";
+    schema:pageStart 34 ;
+    schema:pageEnd 36 ;
+    schema:position "2.2.3.2" .
+
+oc:Chapter2233 a schema:Chapter ;
+    schema:name "Mapping";
+    schema:pageStart 36 ;
+    schema:pageEnd 37 ;
+    schema:position "2.2.3.3" .
+
+oc:Chapter2234 a schema:Chapter ;
+    schema:name "Automatic annotation tools";
+    schema:pageStart 37 ;
+    schema:pageEnd 41 ;
+    schema:position "2.2.3.4" .
+
+oc:Chapter2235 a schema:Chapter ;
+    schema:name "Evaluation";
+    schema:pageStart 41 ;
+    schema:pageEnd 45 ;
+    schema:position "2.2.3.5" .
+
+oc:Chapter23 a schema:Chapter ;
+    schema:name "Knowledge Hosting";
+    schema:pageStart 45 ;
+    schema:pageEnd 49 ;
+    schema:position "2.3" .
+
+oc:Chapter231 a schema:Chapter ;
+    schema:name "Collection, Storage, and Retrieval of Semantic Annotations";
+    schema:pageStart 45 ;
+    schema:pageEnd 47 ;
+    schema:position "2.3.1" .
+
+oc:Chapter232 a schema:Chapter ;
+    schema:name "Collection, Storage, and Retrieval of Knowledge Graphs";
+    schema:pageStart 47 ;
+    schema:pageEnd 49 ;
+    schema:position "2.3.2" .
+
+oc:Chapter3 a schema:Chapter ;
+    schema:name "How to use a Knowledge Graph";
     schema:pageStart 85 ;
     schema:pageEnd 111 ;
-    schema:pagination 3 .
-    #schema:hasPart <TODO subchapters> .
+    schema:position "3" .
 
-oce:WhyKG a schema:Chapter ;
-    schema:name "How to build a Knowledge Graph";
+oc:Chapter4 a schema:Chapter ;
+    schema:name "Why we need Knowledge Graphs: Applications";
     schema:pageStart 111 ;
     schema:pageEnd 129 ;
-    schema:pagination 4 .
-    #schema:hasPart <TODO subchapters> .
+    schema:position "4" .
 
-oce:Conclusion a schema:Chapter ;
+oc:Conclusion a schema:Chapter ;
     schema:name "Conclusion";
     schema:pageStart 129 ;
     schema:pageEnd 133 ;
-    schema:pagination 5 .
+    schema:position "5" .
 
-oce:References a schema:Chapter ;
+oc:References a schema:Chapter ;
     schema:name "References";
     schema:pageStart 133 ;
     schema:pageEnd 165 .
 
-oce:Appendix a schema:Chapter ;
+oc:Appendix a schema:Chapter ;
     schema:name "Appendix";
     schema:pageStart 165 ;
     schema:pageEnd 177 .
 
-oce:Index a schema:Chapter ;
+oc:Index a schema:Chapter ;
     schema:name "Index";
     schema:pageStart 177 .
 
-#PERSON
-oce:DieterFensel a schema:Person;
+### PEOPLE
+
+oc:DieterFensel a schema:Person;
     schema:name "Dieter Fensel";
-    schema:memberOf oce:STI. # /affiliation/worksFor
+    schema:memberOf oc:STI.
 
-oce:UmutcanSimsek a schema:Person;
+oc:UmutcanSimsek a schema:Person;
     schema:name "Umutcan Şimşek";
-    schema:memberOf oce:STI.
+    schema:memberOf oc:STI.
 
-oce:KevinAngele a schema:Person;
+oc:KevinAngele a schema:Person;
     schema:name "Kevin Angele";
-    schema:memberOf oce:STI, oce:Onlim.
+    schema:memberOf oc:STI, oc:Onlim.
 
-oce:ElwinHuaman a schema:Person;
+oc:ElwinHuaman a schema:Person;
     schema:name "Elwin Huaman";
-    schema:memberOf oce:STI.
+    schema:memberOf oc:STI.
 
-oce:EliasKaerle a schema:Person;
+oc:EliasKaerle a schema:Person;
     schema:name "Elias Kaerle";
-    schema:memberOf oce:STI.
+    schema:memberOf oc:STI.
 
-oce:OleksandraPanasiuk a schema:Person;
+oc:OleksandraPanasiuk a schema:Person;
     schema:name "Oleksandra Panasiuk";
-    schema:memberOf oce:STI.
+    schema:memberOf oc:STI.
 
-oce:IoanToma a schema:Person;
+oc:IoanToma a schema:Person;
     schema:name "Ioan Toma";
-    schema:memberOf oce:Onlim.
+    schema:memberOf oc:Onlim.
 
-oce:JürgenUmbrich a schema:Person;
+oc:JürgenUmbrich a schema:Person;
     schema:name "Jürgen Umbrich";
-    schema:memberOf oce:Onlim.
+    schema:memberOf oc:Onlim.
 
-oce:AlexanderWahler a schema:Person;
+oc:AlexanderWahler a schema:Person;
     schema:name "Alexander Wahler";
-    schema:memberOf oce:Onlim.
+    schema:memberOf oc:Onlim.
 
-oce:MarkMusen a schema:Person ;
+oc:MarkMusen a schema:Person ;
     schema:name "Mark A Musen" .
 
-oce:FrankHarmelen a schema:Person ;
+oc:FrankHarmelen a schema:Person ;
     schema:name "Frank Harmelen" .
 
-oce:STI a schema:Organization ;
+### ORGANIZATIONS
+
+oc:STI a schema:Organization ;
     schema:name "Semantic Technology Institute Innsbruck";
     schema:address [
         a schema:PostalAddress;
         schema:addressCountry "Austria";
     ].
 
-oce:Onlim a schema:Organization ;
+oc:Onlim a schema:Organization ;
     schema:name "Onlim GmbH";
     schema:address [
         a schema:PostalAddress;
@@ -259,83 +271,355 @@ oce:Onlim a schema:Organization ;
         schema:addressLocality "Telfs";
     ].
 
-oce:SchemaOrg a schema:Website, owl:Ontology;
-    schema:name "Schema.org" ;
-    schema:description "Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.";
-    schema:url "https://schema.org/" ;
-    schema:datePublished "2011-01-01"^^xsd:date; #dct:issued
-    schema:creator "Google", "Yahoo!", "Bing", "Yandex". # do orgs instead if used elsewhere
+oc:Google a schema:Organization;
+    schema:name "Google".
 
-oce:DBpediaOntology a owl:Ontology;
+### CONCEPTS
+
+oc:Web a kgb:Concept ;
+    schema:name "The web".
+
+oc:SchemaOrg a schema:Website, kgb:Concept;
+    schema:name "Schema.org" ;
+    schema:description "Schema.org was launched by major search engines Bing, Google, Yahoo! and Yandex in 2011 as an Ontology to empower web search on a global scale.";
+    skos:definition "Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.";
+    schema:url "https://schema.org/" ;
+    schema:datePublished "2011"^^xsd:date;
+    schema:creator "Google", "Yahoo!", "Bing", "Yandex";
+    kgb:usedBy oc:Web;
+    schema:purpose "used to mark up website content" .
+
+oc:DomainSpecification a kgb:Concept;
+    schema:name "Domain Specification";
+    skos:definition "A Domain Specification, i.e., our design patterns for semantic annotations, is an extended subset of types, properties, and ranges from schema.org";
+    schema:purpose "The goal of a domain specification is to give a model of how a domain should be represented in a semantically structured way".
+
+
+oc:KG a kgb:Concept;
+    schema:name "Knowledge Graph";
+    skos:definition "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse";
+    kgb:uses oc:RDF;
+    skos:broader oc:Graph, oc:Knowledge.
+
+oc:Graph a kgb:Concept;
+    schema:name "Graph";
+    skos:definition "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related".
+
+oc:Knowledge a kgb:Concept;
+    schema:name "Knowledge".
+
+
+oc:KnowledgeCreation a kgb:Concept;
+    schema:name "Knowledge creation";
+    skos:definition "Knowledge acquisition describes the process of extracting information from different sources, structuring it, and creating useful knowledge" ;
+    kgb:uses oc:KnowledgeGeneration.
+
+oc:KnowledgeGeneration a kgb:Concept;
+    schema:name "Knowledge Generation";
+    skos:example oc:ManualEditing, oc:SemAutEditing, oc:AutAnnTools;
+    kgb:uses oc:Mapping, oc:Evaluation.
+
+
+oc:ManualEditing a kgb:Concept;
+    schema:name "Manual Editing";
+    schema:description "The annotation process of web content can be done manually via the semantify.it Annotation Editor";
+    skos:example oc:SmtfyAnnotationEditor.
+
+oc:SemAutEditing a kgb:Concept;
+    schema:name "Semi-automatic Editing";
+    schema:description "Semi-automatic support helps users to fill in the fields in the editor by extracting information from the given URI or source file".
+
+oc:Mapping a kgb:Concept;
+    schema:name "Mapping";
+    schema:description "The data are often provided by different institutions and might be in different formats and using different conceptual structures. To make this data accessible in a Knowledge Graph, we need to transfer it into the format and schema of our knowledge representation formalism";
+    skos:example "XLWrap", "SLIPO toolkit", "Mapping Master M2", "XMLtoRDF", "GRDDL", "Virtuoso Sponger", "R2RML", "RML", oc:SmtfyMapperApi.
+
+oc:AutAnnTools a kgb:Concept;
+    schema:name "Automatic annotation tools";
+    schema:description "Automatic annotation tools extract data from the web using natural language processing (NLP) and machine learning";
+    skos:narrower "named entity recognition", "information extraction", "concept mining", "text mining";
+    skos:example [
+        a kgb:Concept;
+        schema:name "GATE";
+        schema:purpose "text analysis", "language processing"
+    ], [
+        a kgb:Concept;
+        schema:name "OpenNLP";
+        schema:purpose "supports the most common NLP tasks"
+    ], [
+        a kgb:Concept;
+        schema:name "RapidMiner";
+        schema:purpose "data preparation", "machine learning", "deep learning", "text mining", "predictive analysis";
+        skos:related oc:MachineLearning;
+    ];
+    skos:related oc:MachineLearning, oc:NLP.
+
+oc:NLP a kgb:Concept;
+    schema:name "NLP";
+    schema:alternateName "Natural Language Processing";
+    skos:narrower [
+        a kgb:Concept;
+        schema:name "Tokenization";
+        schema:description "is the process of transforming text into individual elements called tokens (e.g., words, keywords, phrases, or symbols)";
+    ], [
+        a kgb:Concept;
+        schema:name "Stemming";
+        schema:description "is the process of reducing words into common to all its inflected var- iants which called stems";
+    ], [
+        a kgb:Concept;
+        schema:name "Lemmatization";
+        schema:description "is the process of matching words with their canonical forms or dictionary forms called lemmas";
+    ], [
+        a kgb:Concept;
+        schema:name "Sentence boundary disambiguation";
+        schema:description "is the process of defining the beginning and end of a sentence in the text";
+    ], [
+        a kgb:Concept;
+        schema:name "Named entity recognition";
+        schema:alternateName "entity extraction";
+        schema:description "is a subtask of information extraction that locates, classifies and extracts named entities of a given type from an unstructured text";
+    ], [
+        a kgb:Concept;
+        schema:name "Part-of-speech tagging";
+        schema:description "is the process of assigning parts of speech to words in a text, taking into account the characteristics and roles of the different parts of speech and the context around words";
+    ], [
+        a kgb:Concept;
+        schema:name "Chunking";
+        schema:description "is a process of attaching to POS tags additional information of the constituents of the sentence";
+    ], [
+        a kgb:Concept;
+        schema:name "Syntactic parsing";
+        schema:description "is the process of detecting if the sentence is correct, and provides the syntactic parse tree of the sentence";
+    ], [
+        a kgb:Concept;
+        schema:name "Relation extraction";
+        schema:description "is a subtask of information extraction that discovers connections between entities in the text";
+    ], [
+        a kgb:Concept;
+        schema:name "Semantic role labeling";
+        schema:description "is the process of identifying the semantic roles in the sentence and assigning labels to words and phrases";
+    ], [
+        a kgb:Concept;
+        schema:name "Co-reference resolution";
+        schema:description "is the process of finding the expressions in a text referring to the same entities or things";
+    ].
+
+oc:Evaluation a kgb:Concept;
+    schema:name "Evaluation";
+    schema:definition "evaluate the results of the knowledge engineering process";
+    rdfs:seeAlso oc:Chapter24;
+    skos:example oc:SmtfyEvaluator;
+    skos:narrower oc:Validation, oc:Verification.
+
+oc:Verification a kgb:Concept;
+    schema:name "Verification";
+    schema:description "evaluates semantic annotations against a formal specification".
+
+oc:Validation a kgb:Concept;
+    schema:name "Validation";
+    schema:description "compares the semantic annotations with the web resource they annotate".
+
+
+### KNOWLEDGE GRAPHS
+
+oc:DBpediaOntology a owl:Ontology;
     schema:name "DBpedia Ontology" ;
     schema:numClasses "760"^^xsd:integer;
     schema:numProperties "3000"^^xsd:integer.
 
-oce:Wikipedia a schema:WebSite;
+oc:Wikipedia a schema:WebSite;
     schema:url "http://wikipedia.org".
 
-oce:DBpedia a oc:OpenKnowledgeGraph ;
-    schema:publicAccess "true"^^xsd:boolean ;
+oc:DBpedia a kgb:OpenKnowledgeGraph ;
     schema:name "Dbpedia" ;
     schema:description "It is the de-facto central dataset on the semantic web (also referred as “nucleus”) since it is linked to many other datasets." ;
     schema:accessibilityControl "RDF Dumps", "Sparql Endpoints";
-    schema:datePublished "2007-01-01"^^xsd:date;
-    oce:numTripples "13 000 000 000"^^xsd:integer;
-    schema:isBasedOn oce:DBpediaOntology, oce:Wikipedia; # maybe split into 2 diff props
+    schema:datePublished "2007"^^xsd:date;
+    kgb:numTripples "13 000 000 000"^^xsd:integer;
+    schema:isBasedOn oc:DBpediaOntology, oc:Wikipedia;
     schema:educationalUse "Natural Language Processing", "knowledge exploration and enrichment".
 
-oce:Freebase a oc:OpenKnowledgeGraph ;
-    schema:publicAccess "true"^^xsd:boolean ;
+oc:Freebase a kgb:OpenKnowledgeGraph ;
     schema:name "Freebase";
-    schema:datePublished "2007-01-01"^^xsd:date;
-    oce:numTripples "1 900 000 000"^^xsd:integer.
-    #shut down on 2016
+    schema:datePublished "2007"^^xsd:date;
+    kgb:numTripples "1 900 000 000"^^xsd:integer.
 
-oce:YAGO a oc:OpenKnowledgeGraph ;
-    schema:publicAccess "true"^^xsd:boolean ;
+oc:YAGO a kgb:OpenKnowledgeGraph ;
     schema:name "YAGO";
     schema:description "YAGO is a Knowledge Graph built based on Wikipedia content.";
-    schema:datePublished "2008-01-01"^^xsd:date;
-    oce:numTripples "120 000 000"^^xsd:integer. # 120M facts and 350K classes
+    schema:datePublished "2008"^^xsd:date;
+    kgb:numTripples "120 000 000"^^xsd:integer.
 
-oce:Cyc a oc:ProprietaryKnowledgeGraph ;
-    schema:publicAccess "false"^^xsd:boolean ;
+oc:Nell a kgb:OpenKnowledgeGraph ;
+    schema:name "NELL";
+    schema:description "NELL builds a cross-domain knowledge base with machine learning methods based on 500 million web pages.";
+    schema:isBasedOn "500 million web pages";
+    schema:datePublished "2010"^^xsd:date;
+    kgb:numTripples "2 700 000"^^xsd:integer. 
+
+oc:Wikidata a kgb:OpenKnowledgeGraph ;
+    schema:name "Wikidata";
+    schema:description "Wikidata is a community curated Knowledge Graph and a sister project of Wikipedia";
+    schema:isBasedOn oc:Wikipedia;
+    schema:accessibilityControl "RDF Dumps", "Sparql Endpoints";
+    schema:datePublished "2012"^^xsd:date;
+    kgb:numTripples "7 000 000 000"^^xsd:integer. 
+
+oc:KBpedia a kgb:OpenKnowledgeGraph ;
+    schema:name "KBpedia";
+    schema:description "KBpedia is a knowledge base that contains mappings to Wikipedia, Wikidata, schema.org, DBpedia, GeoNames, OpenCyc, and UMBEL.";
+    schema:isBasedOn oc:Wikipedia, oc:Dbpedia, oc:schemaOrg;
+    schema:educationalUse "support AI applications";
+    schema:datePublished "2016"^^xsd:date.
+
+oc:Datacommons a kgb:OpenKnowledgeGraph ;
+    schema:name "Datacommons.org";
+    schema:isBasedOn "integrates several public sources", oc:schemaOrg;
+    schema:about "geographic and administrational areas, demographics and other publicly available data";
+    schema:creator oc:Google;
+    schema:datePublished "2018"^^xsd:date.
+
+oc:Cyc a kgb:ProprietaryKnowledgeGraph ;
     schema:name "Cyc";
-    schema:datePublished "1984-01-01"^^xsd:date;
-    oce:numTripples "20 000 000 000"^^xsd:integer. # says axioms, is same as tripples?
-    #1.5m concepts?
+    schema:description "Cyc is one of the longest-living AI projects and a common-sense knowledge base.";
+    schema:datePublished "1984"^^xsd:date;
+    schema:about "variety of knowledge from general knowledge", "highly domain-specific knowledge such as stock prices";
+    kgb:numTripples "20 000 000 000"^^xsd:integer. 
 
-oce:FacebooksEntitiesGraph a oc:ProprietaryKnowledgeGraph ;
-    schema:publicAccess "true"^^xsd:boolean ; # accessible via the Facebook Graph API?!
+oc:FacebooksEntitiesGraph a kgb:ProprietaryKnowledgeGraph ;
     schema:name "FacebooksEntitiesGraph";
     schema:description "Facebook's Entities Graph is maintained by Facebook and used internally to support the graph search functionality." ;
-    schema:datePublished "2010-01-01"^^xsd:date;
-    oce:numTripples "500 000 000 000"^^xsd:integer.
+    schema:datePublished "2010"^^xsd:date;
+    kgb:numTripples "500 000 000 000"^^xsd:integer.
 
-oce:SemantifyIt a schema:WebApplication, schema:WebSite ;
+oc:GoogleKG a kgb:ProprietaryKnowledgeGraph ;
+    schema:name "Google’s Knowledge Graph";
+    schema:description "Google’s Knowledge Graph was launched in 2012 initially to improve Google’s search engine results, effectively converting Google to a question-answering engine" ;
+    schema:datePublished "2012"^^xsd:date;
+    schema:isBasedOn oc:schemaOrg, oc:Wikipedia, "World Bank", "Data from the web";
+    schema:accessibilityControl "Google Knowledge Graph API";
+    schema:creator oc:Google;
+    kgb:numTripples "70 000 000 000"^^xsd:integer.
+
+oc:YahooKG a kgb:ProprietaryKnowledgeGraph ;
+    schema:name "Yahoo’s Knowledge Graph";
+    schema:description "Yahoo!’s Knowledge Graph was launched in 2013. The Knowledge Graph acquires data from heterogenous sources and fuses them under a common OWL Ontology." ;
+    schema:datePublished "2013"^^xsd:date;
+    schema:isBasedOn "heterogenous sources", oc:Wikipedia;
+    schema:educationalUse "solve tasks like search, relationship discovery and natural language processing tasks".
+
+oc:KnowledgeVault a kgb:ProprietaryKnowledgeGraph ;
+    schema:name "Knowledge Vault";
+    schema:description "Knowledge Vault is a research project acquired by Google that aims to create a large probabilistic knowledge base extracted from different kinds of web content and data." ;
+    schema:datePublished "2014"^^xsd:date;
+    schema:isBasedOn "different kinds of web content and data";
+    kgb:numTripples "270 000 000"^^xsd:integer.
+
+### 
+
+oc:CreateKG a schema:HowTo;
+    schema:name "Create a Knowledge Graph";
+    schema:yield oc:KnowledgeGraph;
+    schema:step: [
+        a schema:HowToStep;
+        schema:position "1"^^xsd:integer;
+        schema:text "A traditional knowledge acquisition phase that establishes the core data for a Knowledge Graph";
+        rdfs:seeAlso oc:Chapter22;
+    ], [
+        a schema:HowToStep;
+        schema:position "2"^^xsd:integer;
+        schema:text "The process to implement this knowledge in a proper storage system such as a document or graph-based repository";
+        rdfs:seeAlso oc:Chapter23;
+    ], [
+        a schema:HowToStep;
+        schema:position "3"^^xsd:integer;
+        schema:text "The knowledge curation process establishes large Knowledge Graphs of significant coverage and quality";
+        rdfs:seeAlso oc:Chapter24;
+    ], [
+        a schema:HowToStep;
+        schema:position "4"^^xsd:integer;
+        schema:text "Finally, we need to deploy and apply such a Knowledge Graph";
+        rdfs:seeAlso oc:Chapter25;
+    ].
+
+oc:CreateKnowledge a schema:HowTo; ## only bottom-up
+    schema:name "Knowledge Creation";
+    schema:yield oc:SemanticAnnotation;
+    schema:step: [
+        a schema:HowToStep;
+        schema:position "1"^^xsd:integer;
+        schema:text "Analysis of domain entities and their online representation";
+    ], [
+        a schema:HowToStep, kgb:Concept;
+        schema:position "2"^^xsd:integer;
+        schema:text "Definition of a vocabulary based on restricting and extending semantic vocabularies";
+        kgb:uses oc:SchemaOrg;
+    ], [
+        a schema:HowToStep;
+        schema:position "3"^^xsd:integer;
+        schema:text "Annotation development and deployment";
+    ], [
+        a schema:HowToStep;
+        schema:position "4"^^xsd:integer;
+        schema:text "Evaluation and analysis of the annotations";
+    ].
+
+
+oc:SemantifyIt a schema:WebApplication, schema:WebSite ;
     schema:name "semantify.it" ;
     schema:url "https://semantify.it/" ;
     schema:description "Semantify.it gives your website the power to be perfectly understandable for search engines, intelligent assistants and chatbots by using schema.org annotations. Semantify.it gives you easy-to-use annotation creation and deployment.";
-    schema:softwareAddOn oce:smtfyAnnotationEditor, oce:smtfyEvaluator.
+    schema:softwareAddOn oc:SmtfyAnnotationEditor, oc:SmtfyEvaluator, oc:SmtfyMapperApi.
 
-oce:smtfyEvaluator a schema:WebApplication;
+oc:SmtfyEvaluator a schema:WebApplication;
     schema:name "Semantify.it Evaluator";
-    schema:softwareAddOn oce:smtfyValidator, oce:smtfyVerificator.
+    schema:description "The scraped annotations are verified against the schema.org vocabulary, domain specifications and for the compliance of annotations with integrity constraints";
+    schema:softwareAddOn oc:SmtfyValidator, oc:SmtfyVerificator.
 
-oce:smtfyValidator a schema:WebApplication;
-    schema:about oce:Validation;
-    schema:screenshot oce:VerificationReportScreenShot, oce:VerificationReport2ScreenShot.
+oc:SmtfyValidator a schema:WebApplication;
+    schema:about oc:Validation;
+    schema:screenshot oc:VerificationReportScreenShot, oc:VerificationReport2ScreenShot.
 
-oce:smtfyVerificator a schema:WebApplication;
-    schema:about oce:Verification.
 
-oce:smtfyAnnotationEditor a schema:WebApplication;
+oc:SmtfyMapperApi a schema:WebApplication;
+    schema:name "Semantify RML Mapper";
+    schema:description "The wrapper API where mappings can be stored and applied to corresponding data sources. The wrapper translates the data according to the mappings and stores it as JSON-LD in a MongoDB. From there, the data can be published on web sites as annotations and optionally transferred to a Knowledge Graph".
+
+oc:SmtfyVerificator a schema:WebApplication;
+    schema:name "Semantify Verificator";
+    schema:about oc:Verification;
+    schema:hasPart [
+        a schema:HowTo;
+        schema:name "Verification process";
+        schema:yield oc:Verification;
+        schema:tool oc:SmtfyAnnotationEditor;
+        schema:step: [
+            a schema:HowToStep;
+            schema:position "1"^^xsd:integer;
+            schema:text "the translation/normalization of the input annotation into a compacted JSON-LD document serialization, which is the format of choice for the verification process"
+        ], [
+            a schema:HowToStep;
+            schema:position "2"^^xsd:integer;
+            schema:text "the general verification of the annotation based on the Schema.org vocabulary"
+        ], [
+            a schema:HowToStep;
+            schema:position "3"^^xsd:integer;
+            schema:text "the domain-specific verification of the annotation based on the input domain specification"
+        ], [
+            a schema:HowToStep;
+            schema:position "4"^^xsd:integer;
+            schema:text "the creation of a verification report based on the detected errors"
+        ];
+    ] .
+
+oc:SmtfyAnnotationEditor a schema:WebApplication;
     schema:name "Annotation Editor";
-    schema:screenshot oce:AnnotationEditorScreenShot;
+    schema:screenshot oc:AnnotationEditorScreenShot;
     schema:hasPart [
         a schema:HowTo;
         schema:name "Create an Annotation";
-        schema:yield oce:Annotation;
+        schema:yield oc:SemanticAnnotation;
+        schema:tool oc:SmtfyAnnotationEditor;
         schema:step: [
             a schema:HowToStep;
             schema:position "1"^^xsd:integer;
@@ -347,8 +631,7 @@ oce:smtfyAnnotationEditor a schema:WebApplication;
         ];
     ] .
 
-oce:schemaOrgHotelScreenshot a schema:ImageObject, dbpedia:Reference;
-    dbpedia:atPage "30" ;
+oc:schemaOrgHotelScreenshot a schema:ImageObject;
     schema:url "http://schema.org/Hotel" ;
     schema:caption "Properties and ranges for the schema.org type Hotel." ;
     schema:representativeOfPage "true"^^xsd:boolean ;
@@ -360,52 +643,26 @@ oce:schemaOrgHotelScreenshot a schema:ImageObject, dbpedia:Reference;
     schema:headline "Hotel" .
 
 
-oce:AnnotationEditorScreenShot a schema:ImageObject, dbpedia:Reference;
-    dbpedia:atPage "35" ;
+oc:AnnotationEditorScreenShot a schema:ImageObject;
     schema:headline "Annotate Restaurant" ;
     schema:caption "semantify.it Annotation Editor" ;
-    schema:about oce:AnnotationEditor.
+    schema:about oc:AnnotationEditor.
 
-oce:VerificationReportScreenShot a schema:ImageObject, dbpedia:Reference;
-    dbpedia:atPage "43" ;
+oc:VerificationReportScreenShot a schema:ImageObject;
     schema:headline "Verification Report" ;
     schema:caption "semantify.it Verifier" ;
-    schema:about oce:Verificator.
+    schema:about oc:Verificator.
 
 
-oce:VerificationReportScreen2Shot a schema:ImageObject, dbpedia:Reference;
-    dbpedia:atPage "44" ;
+oc:VerificationReportScreen2Shot a schema:ImageObject;
     schema:headline "Domain Specification Verification Report" ;
     schema:caption "semantify.it Verification Report" ;
-    schema:about oce:Verificator.
+    schema:about oc:Verificator.
 
-oce:BuildKG a schema:HowTo ;
-    schema:name "How to build a knowledge graph" ;
-    schema:steps [
-        a schema:HowToSection;
-        schema:name "knowledge creation" ;
-        schema:position "1" ;
-        #TODO further elaborate
-    ], [
-        a schema:HowToSection ;
-        schema:name "knowledge hosting" ;
-        schema:position "2" ;
-         #TODO further elaborate
-    ], [
-        a schema:HowToSection;
-        schema:name "knowledge curation" ;
-        schema:position "3" ;
-    ], [
-        a schema:HowToSection;
-        schema:name "knowledge deployment";
-        schema:position "4";
-    ];
-    schema:yield oc:KnowledgeGraph .
-
-oce:SemanticWebArticle a schema:ScholarlyArticle ;
+oc:SemanticWebArticle a schema:ScholarlyArticle ;
     schema:name "The Semantic Web: A Brain for Humankind" ;
-    schema:author oce:DieterFensel,
-        oce:MarkMusen ;
+    schema:author oc:DieterFensel,
+        oc:MarkMusen ;
     schema:pageStart: "24" ;
     schema:pageEnd: "25" ;
     schema:isPartOf [
@@ -419,10 +676,10 @@ oce:SemanticWebArticle a schema:ScholarlyArticle ;
         ] ;
     ] .
 
-oce:UnifyingReasoningArticle a schema:ScholarlyArticle ;
+oc:UnifyingReasoningArticle a schema:ScholarlyArticle ;
     schema:name "Unifying Reasoning and Search to Web Scale" ;
-    schema:author oce:DieterFensel,
-        oce:FrankHarmelen ;
+    schema:author oc:DieterFensel,
+        oc:FrankHarmelen ;
     schema:pageStart: "95" ;
     schema:pageEnd: "96" ;
     schema:isPartOf [
@@ -441,72 +698,72 @@ oce:UnifyingReasoningArticle a schema:ScholarlyArticle ;
 # Introduction
 
 
-oce:Agents a oc:Concept;
+oc:Agents a kgb:Concept;
     schema:name "Agents" ;
     schema:description "An Agent is a software object capable of contributing to the accomplishment of a task by Accessing domain knowledge, Reasoning about it’s task, Composing meaningful messages, Sending them to other agents or humans, Interpreting received messages, Making decisions based on domain knowledge and collected information or Acting upon decisions in a meaningful manner.";
-    skos:semanticRelation oce:Bot,
-        oce:SmartSpeaker,
-        oce:DialogueSystem ;
-    oc:understand oce:Annotations .
+    skos:semanticRelation oc:Bot,
+        oc:SmartSpeaker,
+        oc:DialogueSystem ;
+    oc:understand oc:Annotations .
 
-oce:Bot a oc:Concept ;
+oc:Bot a kgb:Concept ;
     schema:name "Bot" ;
     schema:description "An autonomous program on a network (especially the Internet) which can interact with systems or users, especially one designed to behave like a player in some video games." .
 
-oce:SmartSpeaker a oc:Concept;
+oc:SmartSpeaker a kgb:Concept;
     schema:name "SmartSpeaker" ;
     schema:description "An Internet-enabled speaker that is controlled by spoken commands and capable of streaming audio content, relaying information, and communicating with other devices.";
-    oc:utilizes oce:DialogueSystem .
+    oc:utilizes oc:DialogueSystem .
 
-oce:DialogueSystem a oc:Concept;
+oc:DialogueSystem a kgb:Concept;
     schema:name "Dialogue System";
     schema:description "Dialogue System or conversational agent (CA), is a computer system intended to converse with a human. Dialogue systems employed one or more of text, speech, graphics, haptics, gestures, and other modes for communication on both the input and output channel.";
-    oc:utilizes oce:Annotation .
+    oc:utilizes oc:Annotation .
 
-oce:BigData a oc:Concept;
+oc:BigData a kgb:Concept;
     schema:name "BigData" ;
     schema:description "Extremely large data sets that may be analysed computationally to reveal patterns, trends, and associations, especially relating to human behaviour and interactions." .
 
-oce:WorldWideWeb a oc:Concept;
+oc:WorldWideWeb a kgb:Concept;
     schema:name "World Wide Web";
     schema:description "An information system on the Internet which allows documents to be connected to other documents by hypertext links, enabling the user to search for information by moving from one document to another." .
 
-oce:MachineLearning a oc:Concept;
+oc:MachineLearning a kgb:Concept;
     schema:name "Machine Learning";
     schema:description "Machine learning is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead. It is seen as a subset of artificial intelligence.";
-    skos:hasTopConcept oce:ArtificialIntelligence ;
-    oc:utilizes oce:BigData .
+    skos:hasTopConcept oc:ArtificialIntelligence ;
+    oc:utilizes oc:BigData .
 
-oce:ArtificialIntelligence a oc:Concept;
+oc:ArtificialIntelligence a kgb:Concept;
     schema:name "Artificial Intelligence";
     schema:description "The theory and development of computer systems able to perform tasks normally requiring human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.";
-    skos:topConceptOf oce:MachineLearning ;
-    oc:utilizes oce:BigData .
+    skos:topConceptOf oc:MachineLearning ;
+    oc:utilizes oc:BigData .
 
-oce:Automation a oc:Concept;
+oc:Automation a kgb:Concept;
     schema:name "Automation";
     schema:description "The use or introduction of automatic equipment in a manufacturing or other process or facility." .
 
-oce:Annotation a oc:Concept;
+oc:Annotation a kgb:Concept;
     schema:description "Semantic annotation (also known as semantic tagging or semantic enrichment) is the process of attaching additional information to various concepts (e.g., people, things, places, organizations, etc.) in a given text or any other content. Unlike classic text annotations, which are for the reader’s reference, semantic annotations are used by machines." ;
     schema:name "Annotataion";
     schema:encodingFormat "application/ld+json".
 
-oce:Knowledge a oc:Concept;
+oc:Knowledge a kgb:Concept;
     schema:name "Knowledge" ;
     schema:description "Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject.";
-    schema:isBasedOn oce:SemanticReasoner,
-                oce:SchemaOrg,
-                oce:BigData,
-                oce:MachineLearning .
+    schema:isBasedOn oc:SemanticReasoner,
+                oc:SchemaOrg,
+                oc:BigData,
+                oc:MachineLearning .
 
-oce:SemanticReasoner a oc:Concept;
+oc:SemanticReasoner a kgb:Concept;
     schema:name "Semantic Reasoner" ;
     schema:description "A semantic reasoner, reasoning engine, rules engine, or simply a reasoner, is a piece of software able to infer logical consequences from a set of asserted facts or axioms. The notion of a semantic reasoner generalizes that of an inference engine, by providing a richer set of mechanisms to work with." .
 
-oce:Graph a oc:Concept;
+oc:Graph a kgb:Concept;
     schema:name "Graph" ;
     schema:description "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related";
-    skos:topConceptOf oce:SimpleGraph,
-        oce:UndirectedGraph,
-        oce:DirectedGraph .
+    skos:topConceptOf oc:SimpleGraph,
+        oc:UndirectedGraph,
+        oc:DirectedGraph .
