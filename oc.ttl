@@ -866,9 +866,70 @@ oc:KnowledgeBasedSystem a kgb:Concept ;
 oc:KnowledgeBase a kgb:Concept ;
     schema:name "Knowledge Base" ;
     skos:definition "containing the knowledge" ;
-    kgb:uses oc:Knowledge .
+    kgb:uses oc:Knowledge ;
+    schema:isBasedOn "Writing down billions of facts".
 
 oc:InferenceEngine a kgb:Concept ;
     schema:name "Inference Engine" ;
     skos:definition "Derive facts or answer questions over Knowledge Base" ;
     kgb:uses oc:KnowledgeBase .
+
+oc:ABox a kgb:Concept ;
+    schema:name "Assertion Box (ABox)" ;
+    skos:definition "Contains a set of assertions/factual statements." ;
+    skos:related oc:TBox .
+
+oc:TBox a kgb:Concept ;
+    schema:name "Terminology Box (TBox)" ;
+    skos:definition "Defines the terminology used by ABox statements and adds more general logical formulas using this terminology. It provides an intensional definition of potential infinitely many additional facts (derived by the inference engine)." ;
+    skos:related oc:Abox ;
+    kgb:uses oc:InferenceEngine .
+
+oc:KnowledgeAcquisitionBottleneck a kgb:Concept ;
+    schema:name "Knowledge Acquisition Bottleneck" .
+
+oc:LarKC a kgb:Concept ;
+    schema:name "LarkC Project" ;
+    schame:description "Aims to apply reasoning on the semantic web." ;
+    kgb:reason oc:SemanticWeb .
+
+oc:SemanticWeb a kgb:Concept ;
+    schema:name "The semantic web (Web 3.0)" ;
+    schema:description "Next generation of Web" .
+
+oc:ArtificialIntelligence a kgb:Concept ;
+    schema:name "Artificial Intelligence" .
+
+oc:InternetOfThings a kgb:Concept ;
+    schema:name "Internet of things" ;
+    skos:definition "Network of physical devices" ;
+    schema:isBasedOn
+        oc:Network,
+        oc:PhysicalDevices ;
+    kgb:uses oc:Network ;
+    kgb:connect oc:PhysicalDevices ;
+    kgb:collect oc:Data .
+
+oc:PhysicalDevices a kgb:Concept ;
+    schema:name "Physical Devices" ;
+    schema:description "Hardware (Physical) Devices" ;
+    schema:isBasedOn
+        oc:Vehicles,
+        oc:HomeAppliances,
+        oc:Sensors .
+
+oc:Network a kgb:Concept ;
+    schema:name "Network" ;
+    schema:description "Connected devices" ;
+    kgb:usedBy
+        oc:InternetOfThings,
+        oc:SemanticWeb .
+
+oc:Vehicles a kgb:Concept ;
+    schema:name "Vehicles" .
+
+oc:HomeAppliances a kgb:Concept ;
+    schema:name "Home Appliances" .
+
+oc:Sensors a kgb:Concept ;
+    schema:name "Sensors" .
