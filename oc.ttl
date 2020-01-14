@@ -890,7 +890,7 @@ oc:KnowledgeAcquisitionBottleneck a kgb:Concept ;
 
 oc:LarKC a kgb:Concept ;
     schema:name "LarkC Project" ;
-    schame:description "Aims to apply reasoning on the semantic web." ;
+    schema:description "Aims to apply reasoning on the semantic web." ;
     kgb:reason oc:SemanticWeb .
 
 oc:SemanticWeb a kgb:Concept ;
