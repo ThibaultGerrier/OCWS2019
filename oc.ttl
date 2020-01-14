@@ -60,7 +60,7 @@ oc:Chapter11 a schema:Chapter ;
         oc:SmartSpeaker,
         oc:BigData,
         # oc:KnowledgeGraph,
-        oc:Annotation,d
+        oc:Annotation,
         oc:WorldWideWeb,
         oc:MachineLearning,
         oc:Automation,
@@ -303,10 +303,9 @@ oc:KG a kgb:Concept;
 
 oc:Graph a kgb:Concept;
     schema:name "Graph";
-    skos:definition [
-        "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related".
-        "A diagram showing the relation between variable quantities, typically of two variables, each measured along one of a pair of axes at right angles."
-    ]
+    skos:definition
+        "A graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense related",
+        "A diagram showing the relation between variable quantities, typically of two variables, each measured along one of a pair of axes at right angles." .
 
 
 oc:Knowledge a kgb:Concept;
@@ -459,7 +458,7 @@ oc:Nell a kgb:OpenKnowledgeGraph ;
     schema:description "NELL builds a cross-domain knowledge base with machine learning methods based on 500 million web pages.";
     schema:isBasedOn "500 million web pages";
     schema:datePublished "2010"^^xsd:date;
-    kgb:numTripples "2 700 000"^^xsd:integer. 
+    kgb:numTripples "2 700 000"^^xsd:integer.
 
 oc:Wikidata a kgb:OpenKnowledgeGraph ;
     schema:name "Wikidata";
@@ -467,7 +466,7 @@ oc:Wikidata a kgb:OpenKnowledgeGraph ;
     schema:isBasedOn oc:Wikipedia;
     schema:accessibilityControl "RDF Dumps", "Sparql Endpoints";
     schema:datePublished "2012"^^xsd:date;
-    kgb:numTripples "7 000 000 000"^^xsd:integer. 
+    kgb:numTripples "7 000 000 000"^^xsd:integer.
 
 oc:KBpedia a kgb:OpenKnowledgeGraph ;
     schema:name "KBpedia";
@@ -488,7 +487,7 @@ oc:Cyc a kgb:ProprietaryKnowledgeGraph ;
     schema:description "Cyc is one of the longest-living AI projects and a common-sense knowledge base.";
     schema:datePublished "1984"^^xsd:date;
     schema:about "variety of knowledge from general knowledge", "highly domain-specific knowledge such as stock prices";
-    kgb:numTripples "20 000 000 000"^^xsd:integer. 
+    kgb:numTripples "20 000 000 000"^^xsd:integer.
 
 oc:FacebooksEntitiesGraph a kgb:ProprietaryKnowledgeGraph ;
     schema:name "FacebooksEntitiesGraph";
@@ -519,7 +518,7 @@ oc:KnowledgeVault a kgb:ProprietaryKnowledgeGraph ;
     schema:isBasedOn "different kinds of web content and data";
     kgb:numTripples "270 000 000"^^xsd:integer.
 
-### 
+###
 
 oc:CreateKG a schema:HowTo;
     schema:name "Create a Knowledge Graph";
@@ -838,20 +837,18 @@ oc:RDFOWL a kgb:Concept ;
 
 oc:KnowledgeLevel a kgb:Concept ;
     schema:name "Knowledge Level" ;
-    skos:definition [
+    skos:definition
         "Number of actions necessary to achive certain goal / knowledge",
         "Knowlege Level is World oriented",
-        "Rationalizes Agents behavior"
-    ] ;
+        "Rationalizes Agents behavior" ;
     kgb:usedBy oc:Agent ;
     skos:narrower oc:Knowledge .
 
 oc:SymbolLevel a kgb:Concept ;
     schema:name "Symbol Level" ;
-    skos:definition [
+    skos:definition
         "Knowledge is coded at the Symbol Level",
-        "Mechanizes Agents behavior"
-    ] ;
+        "Mechanizes Agents behavior" ;
     kgb:usedBy oc:Agent .
 
 oc:ImplementationLevel a kgb:Concept ;
@@ -862,10 +859,9 @@ oc:ImplementationLevel a kgb:Concept ;
 
 oc:KnowledgeBasedSystem a kgb:Concept ;
     schema:name "Knowledge based system" ;
-    kgb:uses [
+    kgb:uses
         oc:KnowledgeBase,
-        oc:InferenceEngine
-    ] .
+        oc:InferenceEngine .
 
 oc:KnowledgeBase a kgb:Concept ;
     schema:name "Knowledge Base" ;
