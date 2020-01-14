@@ -933,3 +933,17 @@ oc:HomeAppliances a kgb:Concept ;
 
 oc:Sensors a kgb:Concept ;
     schema:name "Sensors" .
+
+oc:LinkedOpenDataCloud a kgb:Concept ;
+    schema:name "Linked Open Data Cloud" ;
+    schema:isBasedOn oc:Dataset .
+
+oc:Dataset a kgb:Concept ;
+    schema:name "Dataset" ;
+    schema:description "A set of Data" .
+
+oc:Extractor a kgb:Concept ;
+    schema:name "Extractor" ;
+    skos:related oc:Agents ;
+    kgb:extract oc:Data ;
+

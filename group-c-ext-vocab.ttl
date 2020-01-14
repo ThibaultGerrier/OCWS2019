@@ -46,6 +46,14 @@ kgb:exchange a rdf:Property ;
     rdfs:comment "The concept exchanges itself with another concept (range)" .
 
 
+kgb:extract a rdf:Property ;
+    schema:name "extracting" ;
+    schema:domainIncludes kgb:Concept ;
+    schema:rangeIncludes
+        kgb:Concept,
+        schema:String ;
+    rdfs:comment "The concept extracts from another concept (range)" .
+
 ### CLASSES
 
 kgb:KnowledgeGraph a rdfs:Class ;
