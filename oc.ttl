@@ -64,7 +64,7 @@ oc:Chapter11 a schema:Chapter ;
         oc:WorldWideWeb,
         oc:MachineLearning,
         oc:Automation,
-        oc:Knowledge.
+        oc:Knowledge .
 
 oc:Chapter12 a schema:Chapter ;
     schema:name "A conceptual definition of Knowledge Graphs";
@@ -203,8 +203,14 @@ oc:References a schema:Chapter ;
 
 oc:Appendix a schema:Chapter ;
     schema:name "Appendix";
+    schema:description "Provide Syntax and semantics of domain modeling formalism." ;
     schema:pageStart 165 ;
-    schema:pageEnd 177 .
+    schema:pageEnd 177 ;
+    schema:about oc:Shacl,
+        oc:SimpleDomainSpecification,
+        oc:RestrictionDomainSpecification,
+        oc:ExtensionDomainSpecification,
+        oc:Semantics .
 
 oc:Index a schema:Chapter ;
     schema:name "Index";
@@ -214,39 +220,39 @@ oc:Index a schema:Chapter ;
 
 oc:DieterFensel a schema:Person;
     schema:name "Dieter Fensel";
-    schema:memberOf oc:STI.
+    schema:memberOf oc:STI .
 
 oc:UmutcanSimsek a schema:Person;
     schema:name "Umutcan Şimşek";
-    schema:memberOf oc:STI.
+    schema:memberOf oc:STI .
 
 oc:KevinAngele a schema:Person;
     schema:name "Kevin Angele";
-    schema:memberOf oc:STI, oc:Onlim.
+    schema:memberOf oc:STI, oc:Onlim .
 
 oc:ElwinHuaman a schema:Person;
     schema:name "Elwin Huaman";
-    schema:memberOf oc:STI.
+    schema:memberOf oc:STI .
 
 oc:EliasKaerle a schema:Person;
     schema:name "Elias Kaerle";
-    schema:memberOf oc:STI.
+    schema:memberOf oc:STI .
 
 oc:OleksandraPanasiuk a schema:Person;
     schema:name "Oleksandra Panasiuk";
-    schema:memberOf oc:STI.
+    schema:memberOf oc:STI .
 
 oc:IoanToma a schema:Person;
     schema:name "Ioan Toma";
-    schema:memberOf oc:Onlim.
+    schema:memberOf oc:Onlim .
 
 oc:JürgenUmbrich a schema:Person;
     schema:name "Jürgen Umbrich";
-    schema:memberOf oc:Onlim.
+    schema:memberOf oc:Onlim .
 
 oc:AlexanderWahler a schema:Person;
     schema:name "Alexander Wahler";
-    schema:memberOf oc:Onlim.
+    schema:memberOf oc:Onlim .
 
 oc:MarkMusen a schema:Person ;
     schema:name "Mark A Musen" .
@@ -299,7 +305,7 @@ oc:KG a kgb:Concept;
     schema:name "Knowledge Graph";
     skos:definition "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse";
     kgb:uses oc:RDF;
-    skos:broader oc:Graph, oc:Knowledge.
+    skos:broader oc:Graph, oc:Knowledge .
 
 oc:Graph a kgb:Concept;
     schema:name "Graph";
@@ -315,18 +321,18 @@ oc:Knowledge a kgb:Concept;
 oc:KnowledgeCreation a kgb:Concept;
     schema:name "Knowledge creation";
     skos:definition "Knowledge acquisition describes the process of extracting information from different sources, structuring it, and creating useful knowledge" ;
-    kgb:uses oc:KnowledgeGeneration.
+    kgb:uses oc:KnowledgeGeneration .
 
 oc:KnowledgeGeneration a kgb:Concept;
     schema:name "Knowledge Generation";
     skos:example oc:ManualEditing, oc:SemAutEditing, oc:AutAnnTools;
-    kgb:uses oc:Mapping, oc:Evaluation.
+    kgb:uses oc:Mapping, oc:Evaluation .
 
 
 oc:ManualEditing a kgb:Concept;
     schema:name "Manual Editing";
     schema:description "The annotation process of web content can be done manually via the semantify.it Annotation Editor";
-    skos:example oc:SmtfyAnnotationEditor.
+    skos:example oc:SmtfyAnnotationEditor .
 
 oc:SemAutEditing a kgb:Concept;
     schema:name "Semi-automatic Editing";
@@ -335,7 +341,7 @@ oc:SemAutEditing a kgb:Concept;
 oc:Mapping a kgb:Concept;
     schema:name "Mapping";
     schema:description "The data are often provided by different institutions and might be in different formats and using different conceptual structures. To make this data accessible in a Knowledge Graph, we need to transfer it into the format and schema of our knowledge representation formalism";
-    skos:example "XLWrap", "SLIPO toolkit", "Mapping Master M2", "XMLtoRDF", "GRDDL", "Virtuoso Sponger", "R2RML", "RML", oc:SmtfyMapperApi.
+    skos:example "XLWrap", "SLIPO toolkit", "Mapping Master M2", "XMLtoRDF", "GRDDL", "Virtuoso Sponger", "R2RML", "RML", oc:SmtfyMapperApi .
 
 oc:AutAnnTools a kgb:Concept;
     schema:name "Automatic annotation tools";
@@ -355,7 +361,7 @@ oc:AutAnnTools a kgb:Concept;
         schema:purpose "data preparation", "machine learning", "deep learning", "text mining", "predictive analysis";
         skos:related oc:MachineLearning;
     ];
-    skos:related oc:MachineLearning, oc:NLP.
+    skos:related oc:MachineLearning, oc:NLP .
 
 oc:NLP a kgb:Concept;
     schema:name "NLP";
@@ -412,7 +418,7 @@ oc:Evaluation a kgb:Concept;
     schema:definition "evaluate the results of the knowledge engineering process";
     rdfs:seeAlso oc:Chapter24;
     skos:example oc:SmtfyEvaluator;
-    skos:narrower oc:Validation, oc:Verification.
+    skos:narrower oc:Validation, oc:Verification .
 
 oc:Verification a kgb:Concept;
     schema:name "Verification";
@@ -428,7 +434,7 @@ oc:Validation a kgb:Concept;
 oc:DBpediaOntology a owl:Ontology;
     schema:name "DBpedia Ontology" ;
     schema:numClasses "760"^^xsd:integer;
-    schema:numProperties "3000"^^xsd:integer.
+    schema:numProperties "3000"^^xsd:integer .
 
 oc:Wikipedia a schema:WebSite;
     schema:url "http://wikipedia.org".
@@ -445,20 +451,20 @@ oc:DBpedia a kgb:OpenKnowledgeGraph ;
 oc:Freebase a kgb:OpenKnowledgeGraph ;
     schema:name "Freebase";
     schema:datePublished "2007"^^xsd:date;
-    kgb:numTripples "1 900 000 000"^^xsd:integer.
+    kgb:numTripples "1 900 000 000"^^xsd:integer .
 
 oc:YAGO a kgb:OpenKnowledgeGraph ;
     schema:name "YAGO";
     schema:description "YAGO is a Knowledge Graph built based on Wikipedia content.";
     schema:datePublished "2008"^^xsd:date;
-    kgb:numTripples "120 000 000"^^xsd:integer.
+    kgb:numTripples "120 000 000"^^xsd:integer .
 
 oc:Nell a kgb:OpenKnowledgeGraph ;
     schema:name "NELL";
     schema:description "NELL builds a cross-domain knowledge base with machine learning methods based on 500 million web pages.";
     schema:isBasedOn "500 million web pages";
     schema:datePublished "2010"^^xsd:date;
-    kgb:numTripples "2 700 000"^^xsd:integer.
+    kgb:numTripples "2 700 000"^^xsd:integer .
 
 oc:Wikidata a kgb:OpenKnowledgeGraph ;
     schema:name "Wikidata";
@@ -466,34 +472,34 @@ oc:Wikidata a kgb:OpenKnowledgeGraph ;
     schema:isBasedOn oc:Wikipedia;
     schema:accessibilityControl "RDF Dumps", "Sparql Endpoints";
     schema:datePublished "2012"^^xsd:date;
-    kgb:numTripples "7 000 000 000"^^xsd:integer.
+    kgb:numTripples "7 000 000 000"^^xsd:integer .
 
 oc:KBpedia a kgb:OpenKnowledgeGraph ;
     schema:name "KBpedia";
     schema:description "KBpedia is a knowledge base that contains mappings to Wikipedia, Wikidata, schema.org, DBpedia, GeoNames, OpenCyc, and UMBEL.";
     schema:isBasedOn oc:Wikipedia, oc:Dbpedia, oc:schemaOrg;
     schema:educationalUse "support AI applications";
-    schema:datePublished "2016"^^xsd:date.
+    schema:datePublished "2016"^^xsd:date .
 
 oc:Datacommons a kgb:OpenKnowledgeGraph ;
     schema:name "Datacommons.org";
     schema:isBasedOn "integrates several public sources", oc:schemaOrg;
     schema:about "geographic and administrational areas, demographics and other publicly available data";
     schema:creator oc:Google;
-    schema:datePublished "2018"^^xsd:date.
+    schema:datePublished "2018"^^xsd:date .
 
 oc:Cyc a kgb:ProprietaryKnowledgeGraph ;
     schema:name "Cyc";
     schema:description "Cyc is one of the longest-living AI projects and a common-sense knowledge base.";
     schema:datePublished "1984"^^xsd:date;
     schema:about "variety of knowledge from general knowledge", "highly domain-specific knowledge such as stock prices";
-    kgb:numTripples "20 000 000 000"^^xsd:integer.
+    kgb:numTripples "20 000 000 000"^^xsd:integer .
 
 oc:FacebooksEntitiesGraph a kgb:ProprietaryKnowledgeGraph ;
     schema:name "FacebooksEntitiesGraph";
     schema:description "Facebook's Entities Graph is maintained by Facebook and used internally to support the graph search functionality." ;
     schema:datePublished "2010"^^xsd:date;
-    kgb:numTripples "500 000 000 000"^^xsd:integer.
+    kgb:numTripples "500 000 000 000"^^xsd:integer .
 
 oc:GoogleKG a kgb:ProprietaryKnowledgeGraph ;
     schema:name "Google’s Knowledge Graph";
@@ -502,7 +508,7 @@ oc:GoogleKG a kgb:ProprietaryKnowledgeGraph ;
     schema:isBasedOn oc:schemaOrg, oc:Wikipedia, "World Bank", "Data from the web";
     schema:accessibilityControl "Google Knowledge Graph API";
     schema:creator oc:Google;
-    kgb:numTripples "70 000 000 000"^^xsd:integer.
+    kgb:numTripples "70 000 000 000"^^xsd:integer .
 
 oc:YahooKG a kgb:ProprietaryKnowledgeGraph ;
     schema:name "Yahoo’s Knowledge Graph";
@@ -516,7 +522,7 @@ oc:KnowledgeVault a kgb:ProprietaryKnowledgeGraph ;
     schema:description "Knowledge Vault is a research project acquired by Google that aims to create a large probabilistic knowledge base extracted from different kinds of web content and data." ;
     schema:datePublished "2014"^^xsd:date;
     schema:isBasedOn "different kinds of web content and data";
-    kgb:numTripples "270 000 000"^^xsd:integer.
+    kgb:numTripples "270 000 000"^^xsd:integer .
 
 ###
 
@@ -572,16 +578,16 @@ oc:SemantifyIt a schema:WebApplication, schema:WebSite ;
     schema:name "semantify.it" ;
     schema:url "https://semantify.it/" ;
     schema:description "Semantify.it gives your website the power to be perfectly understandable for search engines, intelligent assistants and chatbots by using schema.org annotations. Semantify.it gives you easy-to-use annotation creation and deployment.";
-    schema:softwareAddOn oc:SmtfyAnnotationEditor, oc:SmtfyEvaluator, oc:SmtfyMapperApi.
+    schema:softwareAddOn oc:SmtfyAnnotationEditor, oc:SmtfyEvaluator, oc:SmtfyMapperApi .
 
 oc:SmtfyEvaluator a schema:WebApplication;
     schema:name "Semantify.it Evaluator";
     schema:description "The scraped annotations are verified against the schema.org vocabulary, domain specifications and for the compliance of annotations with integrity constraints";
-    schema:softwareAddOn oc:SmtfyValidator, oc:SmtfyVerificator.
+    schema:softwareAddOn oc:SmtfyValidator, oc:SmtfyVerificator .
 
 oc:SmtfyValidator a schema:WebApplication;
     schema:about oc:Validation;
-    schema:screenshot oc:VerificationReportScreenShot, oc:VerificationReport2ScreenShot.
+    schema:screenshot oc:VerificationReportScreenShot, oc:VerificationReport2ScreenShot .
 
 
 oc:SmtfyMapperApi a schema:WebApplication;
@@ -649,18 +655,18 @@ oc:schemaOrgHotelScreenshot a schema:ImageObject;
 oc:AnnotationEditorScreenShot a schema:ImageObject;
     schema:headline "Annotate Restaurant" ;
     schema:caption "semantify.it Annotation Editor" ;
-    schema:about oc:AnnotationEditor.
+    schema:about oc:AnnotationEditor .
 
 oc:VerificationReportScreenShot a schema:ImageObject;
     schema:headline "Verification Report" ;
     schema:caption "semantify.it Verifier" ;
-    schema:about oc:Verificator.
+    schema:about oc:Verificator .
 
 
 oc:VerificationReportScreen2Shot a schema:ImageObject;
     schema:headline "Domain Specification Verification Report" ;
     schema:caption "semantify.it Verification Report" ;
-    schema:about oc:Verificator.
+    schema:about oc:Verificator .
 
 oc:SemanticWebArticle a schema:ScholarlyArticle ;
     schema:name "The Semantic Web: A Brain for Humankind" ;
@@ -945,5 +951,73 @@ oc:Dataset a kgb:Concept ;
 oc:Extractor a kgb:Concept ;
     schema:name "Extractor" ;
     skos:related oc:Agents ;
-    kgb:extract oc:Data ;
+    kgb:extract oc:Data .
+
+oc:Shacl a kgb:Concept ;
+    schema:name "Shacl" ;
+    kgb:uses oc:ShaclCore ;
+    schema:description "SHACL is a recent W3C recommendation for defining constraints over RDF data." .
+
+oc:ShaclCore a kgb:Concept ;
+     schema:name "Shacl core" ;
+     schema:description "SHACL Core Vocabulary defines two different kinds of shapes, namely node shapes and property shapes. Node shapes target a set of nodes in an RDF data graph." .
+
+oc:SimpleDomainSpecification a kgb:Concept ;
+    schema:name "Simple DomainSpecification" ;
+    skos:narrower oc:oc:DomainSpecification ;
+    schema:description "A Simple Domain Specification (SDS) generates a Simple Domain Specific Pattern (SDSP) through removing types and properties from the schema.org vocabulary." .
+
+oc:RestrictionDomainSpecification a kgb:Concept ;
+    schema:name "Restriction DomainSpecification" ;
+    skos:narrower oc:oc:DomainSpecification ;
+    schema:description "A Restriction Domain Specification (RDS) generates a Restricted Domain Specific Pattern (RDSP) by restricting the ranges of the remaining properties of the remaining types in an SDSP." .
+
+oc:ExtensionDomainSpecification a kgb:Concept ;
+    schema:name "Extension DomainSpecification" ;
+    skos:narrower oc:oc:DomainSpecification ;
+    schema:description "An Extension Domain Specification (EDS) generates an Extended Domain Specific Pattern (EDSP) by adding new types and properties to an SDSP or RDSP." .
+
+oc:Semantics a kgb:Concept ;
+    schema:name "Semantics" ;
+    schema:description "An annotation can be verified against a domain-specific pattern that is generated by a domain specification operator. The verification is done by checking an annotation against the constraints defined by a domain specification operator. We define two predicates, namely applies and verifies, in order to explain the semantics of domain-specific patterns and annotation verification255. A domain-specific pattern applies to an annotation when the target type of the domain specification operator that produces the pattern is the same type as the root type of the annotation." .
+
+oc:DomainSpecificationOperator a kgb:Concept ;
+    schema:name "DomainSpecification Operator dso" ;
+    schema:description " dso is a domain specification operator that generates a domain-specific pattern." .
+
+oc:ValueTypeConstraint a kgb:Concept ;
+    schema:name "ValueTypeConstraint" ;
+    kgb:uses oc:IsElementOf ;
+    schema:description " isElementOf (n, ta) and isA(ta, tb) and tb is equal to the value of ValueType- Constraint",
+            "A value type constraint component specifies a constraint on the range of a property for a domain. For our domain specification language, we adopt the sh:class and sh:datatype parameters in order to constrain the type of property value. A cardinality constraint component defines a cardinality constraint on number of values of a given property. We utilize the sh:minCount parameter for minimum cardinality constraints.".
+
+oc:NodeConstraint a kgb:Concept ;
+    schema:name "NodeConstraint" ;
+    kgb:uses oc:IsElementOf ;
+    schema:description "isElementOf (n, tc) and isA (tc, td) and td is equal to the value of ValueTypeConstraint in cons" .
+
+oc:DisjunctiveConstraint a kgb:Concept ;
+    schema:name "DisjunctiveConstraint" ;
+    schema:description " for the list of constraints (c1 ... cn) in cons, satisfies (n, c1) V satisfies(n, c2) V satisfies(n, c3) ... V satisfies(n, c4 ) holds true" .
+
+oc:IsElementOf a kgb:Concept ;
+    schema:name "IsElementOf" ;
+    kgb:uses oc:SDOTargetType ;
+    schema:description "isElementOf (sn, t) holds true where t is the value of SDOTargetType in dso" .
+
+oc:SDOTargetType a kgb:Concept ;
+    schema:name "SDO Target Type" ;
+    schema:description "SDO Target Type" .
+
+oc:ClassBasedTarget a kgb:Concept ;
+    schema:name "Class Based Target" ;
+    schema:description "A class-based target selects a set of nodes in an RDF graph that are instances of the specified class as the value of the property sh:targetClass. Shapes can define certain constraints on focus nodes and property values. Our constraints are defined by constraint component instances attached to a shape with parameters. In the domain specification language, we are only interested in a subset of the constraint components, namely value type (sh:class and sh:datatype), cardinality (sh:minCount), shape-based (sh:node and sh:property) and logical constraint components (sh:or)." .
+
+oc:ShapeBasedConstraint a kgb:Concept ;
+    schema:name "Shape Based Constraint" ;
+    schema:description "A shape-based constraint component defines a constraint where the value nodes need to conform to the specified shape. For our domain specification language, we use property shape constraints with sh:property parameter to specify the remaining properties on a type and node shape constraints with sh:node parameter to define local ranges (typically a more restricted version of a type in the global range) for properties of a type." .
+
+oc:LogicalConstraint a kgb:Concept ;
+    schema:name "Logical Constraint" ;
+    schema:description "A logical constraint component implements common logical operators AND, OR, NOT and XOR on a list of shapes. For the domain specification language, we adopt only the OR operator with sh:or parameter for specifying disjunction of value type and node shape constraints." .
 
