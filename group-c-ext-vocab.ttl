@@ -8,13 +8,13 @@
 ##### Properties
 
 kgb:numTriples a rdf:Property ;
-    schema:name "numTriples" ;
+    rdfs:label  "numTriples" ;
     schema:domainIncludes kgb:KnowledgeGraph ;
     schema:rangeIncludes schema:Number;
     rdfs:comment "The number of Triples in a knowledge graph" .
 
 kgb:reason a rdf:Property ;
-    schema:name "reasoning" ;
+    rdfs:label  "reasoning" ;
     schema:domainIncludes kgb:Concept ;
     schema:rangeIncludes
         kgb:Concept,
@@ -22,7 +22,7 @@ kgb:reason a rdf:Property ;
     rdfs:comment "The concept reasons with the help of another concept (range)" .
 
 kgb:connect a rdf:Property ;
-    schema:name "connect" ;
+    rdfs:label  "connect" ;
     schema:domainIncludes kgb:Concept ;
     schema:rangeIncludes
         kgb:Concept,
@@ -30,7 +30,7 @@ kgb:connect a rdf:Property ;
     rdfs:comment "The concept connects to another concept (range)" .
 
 kgb:collect a rdf:Property ;
-    schema:name "collect" ;
+    rdfs:label  "collect" ;
     schema:domainIncludes kgb:Concept ;
     schema:rangeIncludes
         kgb:Concept,
@@ -38,7 +38,7 @@ kgb:collect a rdf:Property ;
     rdfs:comment "The concept collects from another concept (range)" .
 
 kgb:exchange a rdf:Property ;
-    schema:name "exchange" ;
+    rdfs:label  "exchange" ;
     schema:domainIncludes kgb:Concept ;
     schema:rangeIncludes
         kgb:Concept,
@@ -47,7 +47,7 @@ kgb:exchange a rdf:Property ;
 
 
 kgb:extract a rdf:Property ;
-    schema:name "extracting" ;
+    rdfs:label  "extracting" ;
     schema:domainIncludes kgb:Concept ;
     schema:rangeIncludes
         kgb:Concept,
@@ -57,16 +57,16 @@ kgb:extract a rdf:Property ;
 ### CLASSES
 
 kgb:KnowledgeGraph a rdfs:Class ;
-    schema:name "KnowledgeGraph" ;
+    rdfs:label  "KnowledgeGraph" ;
     rdfs:comment "Knowledge Graphs are very large semantic nets that integrate various and heterogeneous information sources to represent knowledge about certain domains of discourse" ;
     rdfs:subClassOf schema:Dataset .
 
 kgb:OpenKnowledgeGraph a rdfs:Class ;
-    schema:name "OpenKnowledgeGraph" ;
+    rdfs:label  "OpenKnowledgeGraph" ;
     rdfs:comment "The research on semantic web and linked data led to many open datasets eventually to comprise the Linked Open Data cloud. These datasets are now mostly rebranded as Knowledge Graphs." ;
     rdfs:subClassOf kgb:KnowledgeGraph .
 
 kgb:ProprietaryKnowledgeGraph a rdfs:Class ;
-    schema:name "ProprietaryKnowledgeGraph" ;
+    rdfs:label  "ProprietaryKnowledgeGraph" ;
     rdfs:comment "Various Knowledge Graphs have been developed by companies to enable their customers' applications." ;
     rdfs:subClassOf kgb:KnowledgeGraph .
