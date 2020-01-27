@@ -529,7 +529,7 @@ oc:KnowledgeVault a kgb:ProprietaryKnowledgeGraph ;
 oc:CreateKG a schema:HowTo;
     schema:name "Create a Knowledge Graph";
     schema:yield oc:KnowledgeGraph;
-    schema:step: [
+    schema:step [
         a schema:HowToStep;
         schema:position "1"^^xsd:integer;
         schema:text "A traditional knowledge acquisition phase that establishes the core data for a Knowledge Graph";
@@ -554,7 +554,7 @@ oc:CreateKG a schema:HowTo;
 oc:CreateKnowledge a schema:HowTo; ## only bottom-up
     schema:name "Knowledge Creation";
     schema:yield oc:SemanticAnnotation;
-    schema:step: [
+    schema:step [
         a schema:HowToStep;
         schema:position "1"^^xsd:integer;
         schema:text "Analysis of domain entities and their online representation";
@@ -602,7 +602,7 @@ oc:SmtfyVerificator a schema:WebApplication;
         schema:name "Verification process";
         schema:yield oc:Verification;
         schema:tool oc:SmtfyAnnotationEditor;
-        schema:step: [
+        schema:step [
             a schema:HowToStep;
             schema:position "1"^^xsd:integer;
             schema:text "the translation/normalization of the input annotation into a compacted JSON-LD document serialization, which is the format of choice for the verification process"
@@ -629,7 +629,7 @@ oc:SmtfyAnnotationEditor a schema:WebApplication;
         schema:name "Create an Annotation";
         schema:yield oc:SemanticAnnotation;
         schema:tool oc:SmtfyAnnotationEditor;
-        schema:step: [
+        schema:step [
             a schema:HowToStep;
             schema:position "1"^^xsd:integer;
             schema:text "Select a domain specification"
