@@ -444,27 +444,27 @@ oc:DBpedia a kgb:OpenKnowledgeGraph ;
     schema:description "It is the de-facto central dataset on the semantic web (also referred as “nucleus”) since it is linked to many other datasets." ;
     schema:accessibilityControl "RDF Dumps", "Sparql Endpoints";
     schema:datePublished "2007"^^xsd:date;
-    kgb:numTripples "13 000 000 000"^^xsd:integer;
+    kgb:numTriples "13 000 000 000"^^xsd:integer;
     schema:isBasedOn oc:DBpediaOntology, oc:Wikipedia;
     schema:educationalUse "Natural Language Processing", "knowledge exploration and enrichment".
 
 oc:Freebase a kgb:OpenKnowledgeGraph ;
     schema:name "Freebase";
     schema:datePublished "2007"^^xsd:date;
-    kgb:numTripples "1 900 000 000"^^xsd:integer .
+    kgb:numTriples "1 900 000 000"^^xsd:integer .
 
 oc:YAGO a kgb:OpenKnowledgeGraph ;
     schema:name "YAGO";
     schema:description "YAGO is a Knowledge Graph built based on Wikipedia content.";
     schema:datePublished "2008"^^xsd:date;
-    kgb:numTripples "120 000 000"^^xsd:integer .
+    kgb:numTriples "120 000 000"^^xsd:integer .
 
 oc:Nell a kgb:OpenKnowledgeGraph ;
     schema:name "NELL";
     schema:description "NELL builds a cross-domain knowledge base with machine learning methods based on 500 million web pages.";
     schema:isBasedOn "500 million web pages";
     schema:datePublished "2010"^^xsd:date;
-    kgb:numTripples "2 700 000"^^xsd:integer .
+    kgb:numTriples "2 700 000"^^xsd:integer .
 
 oc:Wikidata a kgb:OpenKnowledgeGraph ;
     schema:name "Wikidata";
@@ -472,7 +472,7 @@ oc:Wikidata a kgb:OpenKnowledgeGraph ;
     schema:isBasedOn oc:Wikipedia;
     schema:accessibilityControl "RDF Dumps", "Sparql Endpoints";
     schema:datePublished "2012"^^xsd:date;
-    kgb:numTripples "7 000 000 000"^^xsd:integer .
+    kgb:numTriples "7 000 000 000"^^xsd:integer .
 
 oc:KBpedia a kgb:OpenKnowledgeGraph ;
     schema:name "KBpedia";
@@ -493,13 +493,13 @@ oc:Cyc a kgb:ProprietaryKnowledgeGraph ;
     schema:description "Cyc is one of the longest-living AI projects and a common-sense knowledge base.";
     schema:datePublished "1984"^^xsd:date;
     schema:about "variety of knowledge from general knowledge", "highly domain-specific knowledge such as stock prices";
-    kgb:numTripples "20 000 000 000"^^xsd:integer .
+    kgb:numTriples "20 000 000 000"^^xsd:integer .
 
 oc:FacebooksEntitiesGraph a kgb:ProprietaryKnowledgeGraph ;
     schema:name "FacebooksEntitiesGraph";
     schema:description "Facebook's Entities Graph is maintained by Facebook and used internally to support the graph search functionality." ;
     schema:datePublished "2010"^^xsd:date;
-    kgb:numTripples "500 000 000 000"^^xsd:integer .
+    kgb:numTriples "500 000 000 000"^^xsd:integer .
 
 oc:GoogleKG a kgb:ProprietaryKnowledgeGraph ;
     schema:name "Google’s Knowledge Graph";
@@ -508,7 +508,7 @@ oc:GoogleKG a kgb:ProprietaryKnowledgeGraph ;
     schema:isBasedOn oc:schemaOrg, oc:Wikipedia, "World Bank", "Data from the web";
     schema:accessibilityControl "Google Knowledge Graph API";
     schema:creator oc:Google;
-    kgb:numTripples "70 000 000 000"^^xsd:integer .
+    kgb:numTriples "70 000 000 000"^^xsd:integer .
 
 oc:YahooKG a kgb:ProprietaryKnowledgeGraph ;
     schema:name "Yahoo’s Knowledge Graph";
@@ -522,7 +522,7 @@ oc:KnowledgeVault a kgb:ProprietaryKnowledgeGraph ;
     schema:description "Knowledge Vault is a research project acquired by Google that aims to create a large probabilistic knowledge base extracted from different kinds of web content and data." ;
     schema:datePublished "2014"^^xsd:date;
     schema:isBasedOn "different kinds of web content and data";
-    kgb:numTripples "270 000 000"^^xsd:integer .
+    kgb:numTriples "270 000 000"^^xsd:integer .
 
 ###
 
@@ -881,12 +881,14 @@ oc:InferenceEngine a kgb:Concept ;
     kgb:uses oc:KnowledgeBase .
 
 oc:ABox a kgb:Concept ;
-    schema:name "Assertion Box (ABox)" ;
+    schema:name "A-Box" ;
+    schema:alternateName "Assertion Box " ;
     skos:definition "Contains a set of assertions/factual statements." ;
     skos:related oc:TBox .
 
 oc:TBox a kgb:Concept ;
-    schema:name "Terminology Box (TBox)" ;
+    schema:name "T-Box" ;
+    schema:alternateName "Terminology Box" ;
     skos:definition "Defines the terminology used by ABox statements and adds more general logical formulas using this terminology. It provides an intensional definition of potential infinitely many additional facts (derived by the inference engine)." ;
     skos:related oc:Abox ;
     kgb:uses oc:InferenceEngine .

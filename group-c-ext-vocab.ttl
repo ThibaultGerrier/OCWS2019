@@ -7,11 +7,11 @@
 
 ##### Properties
 
-kgb:numTripples a rdf:Property ;
-    schema:name "numTripples" ;
+kgb:numTriples a rdf:Property ;
+    schema:name "numTriples" ;
     schema:domainIncludes kgb:KnowledgeGraph ;
     schema:rangeIncludes schema:Number;
-    rdfs:comment "The number of tripples in a knowledge graph" .
+    rdfs:comment "The number of Triples in a knowledge graph" .
 
 kgb:reason a rdf:Property ;
     schema:name "reasoning" ;
